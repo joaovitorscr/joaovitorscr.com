@@ -59,3 +59,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .active {
+    @apply underline font-bold underline-offset-8
+  }
+}

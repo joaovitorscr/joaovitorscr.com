@@ -1,4 +1,5 @@
 import Container from '@/components/Container'
+import { Link } from 'react-scroll'
 
 export default function Header() {
   return (
@@ -9,19 +10,64 @@ export default function Header() {
           <nav>
             <ul className="flex space-x-4 text-lg">
               <li>
-                <a href="#about">About me</a>
+                <Link
+                  className="cursor-pointer"
+                  activeClass="active"
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  About me
+                </Link>
               </li>
               <li>
-                <a href="#skills">Skills</a>
+                <Link
+                  className="cursor-pointer"
+                  activeClass="active"
+                  to="skills"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Skills
+                </Link>
               </li>
               <li>
-                <a href="#education">Education</a>
+                <Link
+                  className="cursor-pointer"
+                  activeClass="active"
+                  to="education"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Education
+                </Link>
               </li>
               <li>
-                <a href="#projects">Projects</a>
+                <Link
+                  className="cursor-pointer"
+                  activeClass="active"
+                  to="projects"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Projects
+                </Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link
+                  className="cursor-pointer"
+                  activeClass="active"
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
