@@ -1,15 +1,24 @@
+import background from '@/assets/about.jpg'
 import Container from '@/components/Container'
 import Header from '@/components/Header'
 
 function App() {
   return (
-    <main>
+    <main className="relative">
       <Header />
-      <Container>
-        <section id="about" className="h-[calc(100vh-64px)]">
-          <article className="flex flex-col items-center justify-center h-full">
-            <h2>João Vitor Santos Cruz</h2>
-            <div className="max-w-80">
+      <section
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+        id="about"
+      >
+        <Container>
+          <div className="flex flex-col items-center justify-center h-screen backdrop-blur-sm">
+            <h2 className="text-6xl font-bold">João Vitor Santos Cruz</h2>
+            <div className="max-w-96 mt-8 space-y-4 font-medium">
               <p>
                 Started in front-end development at the end of 2022. Since then
                 I have learned several technologies like React, TypeScript,
@@ -20,12 +29,12 @@ function App() {
                 frameworks so I can become a full-stack developer in the future.
               </p>
             </div>
-          </article>
-        </section>
-        <section id="Skills">
-          <h2>Skills</h2>
-        </section>
-      </Container>
+          </div>
+        </Container>
+      </section>
+      <section id="Skills" className="h-screen">
+        <h2>Skills</h2>
+      </section>
     </main>
   )
 }
