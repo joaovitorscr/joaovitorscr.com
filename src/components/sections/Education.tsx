@@ -2,7 +2,7 @@ import Container from '../Container'
 
 export default function Education() {
   return (
-    <div className="bg-secondary pt-10">
+    <section className="bg-secondary pt-10">
       <Container>
         <div className="flex justify-around items-center h-screen">
           <div className="flex flex-col items-start">
@@ -53,6 +53,6 @@ export default function Education() {
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   )
 }

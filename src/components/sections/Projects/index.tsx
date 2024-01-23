@@ -3,7 +3,7 @@ import ProjectCard from '@/components/sections/Projects/ProjectCard'
 
 export default function Projects() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <section className="flex flex-col items-center justify-center h-screen">
       <Container>
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-6xl font-bold">Projects</h2>
@@ -19,6 +19,6 @@ export default function Projects() {
           <ProjectCard />
         </div>
       </Container>
-    </div>
+    </section>
   )
 }

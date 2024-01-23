@@ -6,6 +6,7 @@ import About from '@/components/sections/About'
 import Education from '@/components/sections/Education'
 import Projects from '@/components/sections/Projects'
 import Skills from '@/components/sections/Skills'
+import Contact from './components/sections/Contact'
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,9 @@ function App() {
       </Element>
       <Element name="projects">
         <Projects />
+      </Element>
+      <Element name="contact">
+        <Contact />
       </Element>
     </main>
   )
