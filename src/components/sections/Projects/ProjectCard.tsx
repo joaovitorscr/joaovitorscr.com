@@ -1,4 +1,6 @@
-import { Button } from '@/components/ui/button'
+import repositoryIcon from '@/assets/github.png'
+import liveIcon from '@/assets/live.svg'
+import { buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,32 +9,45 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import easy from '@/assets/easy.png'
-import githubIcon from '@/assets/github.png'
-import liveIcon from '@/assets/live.svg'
+export interface ProjectCardInterface {
+  img: string
+  title: string
+  content: string
+  liveLink: string
+  repositoryLink: string
+}
 
-export default function ProjectCard() {
+export default function ProjectCard({
+  content,
+  img,
+  title,
+  liveLink,
+  repositoryLink,
+}: ProjectCardInterface) {
   return (
-    <Card>
-      <img className="w-full h-56 object-cover" src={easy} alt="" />
+    <Card className="flex flex-col">
+      <img className="rounded-t-md h-56 object-cover" src={img} alt={title} />
       <CardHeader>
-        <CardTitle>Easy Check Box</CardTitle>
+        <CardTitle className="text-3xl">{title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <p>
-          Website created for people be able to take notes about their daily
-          tasks and check them
-        </p>
-      </CardContent>
-      <CardFooter className="flex justify-around space-x-4">
-        <Button type="button" className="flex items-center">
+      <CardContent>{content}</CardContent>
+      <CardFooter className="mt-auto justify-between">
+        <a
+          href={liveLink}
+          target="#blank"
+          className={`flex items-center ${buttonVariants({ variant: 'default' })}`}
+        >
           <img className="w-4 h-4 mr-2" src={liveIcon} alt="Live" />
-          <span>Live</span>
-        </Button>
-        <Button type="button" className="flex items-center">
-          <img className="w-4 h-4 mr-2" src={githubIcon} alt="GitHub" />
-          <span>Repository</span>
-        </Button>
+          Live Version
+        </a>
+        <a
+          href={repositoryLink}
+          target="#blank"
+          className={`flex items-center ${buttonVariants({ variant: 'default' })}`}
+        >
+          <img className="w-4 h-4 mr-2" src={repositoryIcon} alt="Repository" />
+          Repository
+        </a>
       </CardFooter>
     </Card>
   )

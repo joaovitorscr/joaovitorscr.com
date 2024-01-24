@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="h-screen flex flex-col items-center justify-center bg-secondary"
+      className="h-screen flex flex-col items-center bg-secondary"
     >
       <Container>
         <div>
