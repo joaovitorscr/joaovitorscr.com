@@ -1,30 +1,35 @@
-# Vite + React Template
+# Portfolio
 
 ## 🧱 Stack used
 * Vite
 * React
-* TailwindcSS
-* Eslint
-* Prettier
+* TailwindCSS
+* React-scroll
 
-## ⚠️ Dependencies
-* Node >=20.11
-* Pnpm
-* Degit? (Not necessary, you can just create a repository directely on github using this repository as a template)
+## ⌨️ How clone this project?
 
-## ⌨️ How clone this template?
-
-First you will need [degit](https://github.com/Rich-Harris/degit).
-
-### You can install using:
+1. Clone the repo executing the command below or opening the <>code tab in repository page:
 ```
-npm install -g degit
+git clone https://github.com/joaovitorscr/portfolio.git
 ```
 
-### Now clone the repository using degit
+2. Access the folder that has been created and execute:
+
 ```
-npx degit joaovitorscr/vite-react-template#main <APP-NAME>
-cd app-name
+npm install
+# or
+yarn install
+# or
 pnpm install
-pnpm run dev
 ```
+
+3. Initalize the development server:
+
+```
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+Open http://localhost:3000 with your browser to see the result.
