@@ -79,7 +79,7 @@ export default function Skills() {
   return (
     <section id="skills">
       <Container>
-        <div className="flex justify-around items-center h-screen">
+        <div className="flex flex-col justify-around items-center h-screen md:flex-row">
           <div>
             <h2 className="text-6xl font-bold">Skills</h2>
             <p className="max-w-[480px] mt-8 font-medium text-lg">
@@ -99,7 +99,7 @@ export default function Skills() {
                 title={name}
               >
                 <img
-                  className="w-24 h-24 hover:scale-110 hover:cursor-pointer"
+                  className="w-12 h-12  md:w-24 md:h-24 hover:scale-110 hover:cursor-pointer"
                   src={iconLink}
                   alt={name}
                 />

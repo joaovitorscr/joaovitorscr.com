@@ -32,12 +32,16 @@ export default function Contact() {
                   href="https://www.linkedin.com/in/joaovitorscruz/"
                   target="#blank"
                 >
-                  <LinkedinIcon className="w-10 h-10" />
+                  <LinkedinIcon className="w-10 h-10 hover:scale-105" />
                 </a>
               </li>
               <li>
                 <a href="https://www.github.com/joaovitorscr" target="#blank">
-                  <img className="w-10 h-10" src={githubIcon} alt="GitHub" />
+                  <img
+                    className="w-10 h-10 hover:scale-105"
+                    src={githubIcon}
+                    alt="GitHub"
+                  />
                 </a>
               </li>
             </ul>

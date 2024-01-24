@@ -3,12 +3,12 @@ import { Link } from 'react-scroll'
 
 export default function Header() {
   return (
-    <header className="py-4 fixed top-0 left-1/2 transform -translate-x-1/2 w-full backdrop-blur-sm border-b z-40">
+    <header className="py-4 relative top-0 left-1/2 transform -translate-x-1/2 w-full backdrop-blur-sm border-b z-40 md:fixed">
       <Container>
-        <div className="flex justify-between">
+        <div className="flex flex-col justify-between items-center md:flex-row">
           <h1 className="text-2xl font-bold">{'<joaovitorscr />'}</h1>
           <nav>
-            <ul className="flex space-x-4 text-lg">
+            <ul className="flex space-x-4 text-lg flex-wrap">
               <li>
                 <Link
                   className="cursor-pointer"

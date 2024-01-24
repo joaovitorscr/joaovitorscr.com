@@ -46,7 +46,7 @@ const items: ProjectCardInterface[] = [
 
 export default function Projects() {
   return (
-    <section className="flex h-screen">
+    <section className="flex md:h-screen py-20 md:py-0">
       <Container>
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-6xl font-bold">Projects</h2>
@@ -55,7 +55,7 @@ export default function Projects() {
             technologies in the market.
           </p>
         </div>
-        <div className="mx-auto grid grid-cols-4 gap-4 mt-10">
+        <div className="mx-auto grid grid-cols-1 gap-4 mt-10 md:grid-cols-4">
           {items.map(
             ({ content, img, title, repositoryLink, liveLink }, index) => (
               <ProjectCard
