@@ -7,7 +7,7 @@ export default function Projects() {
       <Container>
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-6xl font-bold">Projects</h2>
-          <p className="max-w-[480px] mt-8 font-medium text-lg">
+          <p className="max-w-[480px] mt-8 font-medium text-lg text-center">
             A few of my personal projects that I made using the most recent
             technologies in the market.
           </p>

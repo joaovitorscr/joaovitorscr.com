@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,7 +8,8 @@ import {
 } from '@/components/ui/card'
 
 import easy from '@/assets/easy.png'
-import { Button } from '@/components/ui/button'
+import githubIcon from '@/assets/github.png'
+import liveIcon from '@/assets/live.svg'
 
 export default function ProjectCard() {
   return (
@@ -23,8 +25,14 @@ export default function ProjectCard() {
         </p>
       </CardContent>
       <CardFooter className="flex justify-around space-x-4">
-        <Button type="button">Live</Button>
-        <Button type="button">Repository</Button>
+        <Button type="button" className="flex items-center">
+          <img className="w-4 h-4 mr-2" src={liveIcon} alt="Live" />
+          <span>Live</span>
+        </Button>
+        <Button type="button" className="flex items-center">
+          <img className="w-4 h-4 mr-2" src={githubIcon} alt="GitHub" />
+          <span>Repository</span>
+        </Button>
       </CardFooter>
     </Card>
   )
