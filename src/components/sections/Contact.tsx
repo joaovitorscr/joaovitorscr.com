@@ -2,6 +2,14 @@ import githubIcon from '@/assets/github.png'
 import { DownloadIcon, LinkedinIcon } from 'lucide-react'
 import Container from '../Container'
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { buttonVariants } from '../ui/button'
+
 export default function Contact() {
   return (
     <section
@@ -9,7 +17,7 @@ export default function Contact() {
       className="h-screen flex flex-col items-center bg-secondary"
     >
       <Container>
-        <div>
+        <div className="flex flex-col justify-center w-full">
           <div className="flex flex-col justify-center">
             <h2 className="text-6xl font-medium text-center">Contact me</h2>
             <p className="max-w-[480px] mt-8 font-medium text-lg text-center">
@@ -39,15 +47,39 @@ export default function Contact() {
               Email: <span>contato.joaovitorscr@gmail.com</span>
             </h3>
           </div>
-          <div className="flex justify-center mt-10">
-            <button
-              type="button"
-              className="flex justify-center items-center bg-primary px-16 py-2 rounded-md space-x-2 hover:bg-red-400"
+          <Accordion
+            className="flex justify-center mt-10"
+            type="single"
+            collapsible
+          >
+            <AccordionItem
+              className="flex flex-col items-center"
+              value="item-1"
             >
-              <DownloadIcon />
-              <span className="font-medium text-lg">Download my resume</span>
-            </button>
-          </div>
+              <AccordionTrigger
+                className={`flex items-center py-2 px-4 ${buttonVariants({ variant: 'default' })} hover:bg-red-400`}
+              >
+                <DownloadIcon className="mr-2" />
+                <span className="font-medium text-lg">Download my resume</span>
+              </AccordionTrigger>
+              <AccordionContent className="mt-4 flex flex-col space-y-2 font-medium text-lg text-center">
+                <a
+                  className="hover:underline underline-offset-8"
+                  href="/joaovitorscr-pt.pdf"
+                  target="#blank"
+                >
+                  Portuguese Version
+                </a>
+                <a
+                  className="hover:underline underline-offset-8"
+                  href="/joaovitorscr-en.pdf"
+                  target="#blank"
+                >
+                  English Version
+                </a>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </Container>
     </section>
