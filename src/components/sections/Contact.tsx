@@ -69,14 +69,14 @@ export default function Contact() {
               <AccordionContent className="mt-4 flex flex-col space-y-2 font-medium text-lg text-center">
                 <a
                   className="hover:underline underline-offset-8"
-                  href="/joaovitorscr-pt.pdf"
+                  href="https://docs.google.com/document/d/1O-7l6KfelowvbpnrY7qFRS3WSlW8tILc/edit"
                   target="#blank"
                 >
                   Portuguese Version
                 </a>
                 <a
                   className="hover:underline underline-offset-8"
-                  href="/joaovitorscr-en.pdf"
+                  href="https://docs.google.com/document/d/1uQu4_cBqKJFCA3xp0j-ji5lOkCkxAm9zVe5m1uSbMr0/edit"
                   target="#blank"
                 >
                   English Version
