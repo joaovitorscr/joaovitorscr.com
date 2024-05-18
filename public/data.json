@@ -12,7 +12,7 @@
           "github": "https://github.com/joaovitorscr/cash-app",
           "live": "https://cash-app-sigma.vercel.app/"
         },
-        "description": "Website desenvolvido com objetivo de simular a UI/UX de um aplicativo bancário. Projeto realizado utilizando tecnologias como Next.js e TailwindCSS."
+        "description": "Website built with the goal of simulate the UI/UX for a banking app. Project build with Next.js and TailwindCSS."
       }
     ],
     "personal": {
