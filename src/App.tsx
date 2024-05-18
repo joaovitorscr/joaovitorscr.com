@@ -1,36 +1,33 @@
-import { useEffect } from 'react'
-import { Element, scrollSpy } from 'react-scroll'
-
-import Header from '@/components/Header'
-import About from '@/components/sections/About'
-import Education from '@/components/sections/Education'
-import Projects from '@/components/sections/Projects'
-import Skills from '@/components/sections/Skills'
-import Contact from './components/sections/Contact'
+import { Education } from './shared/layout/education'
+import { Experience } from './shared/layout/experience'
+import { Languages } from './shared/layout/languages'
+import { Projects } from './shared/layout/projects'
+import { Sidebar } from './shared/layout/sidebar'
+import { Skills } from './shared/layout/skills'
 
 function App() {
-  useEffect(() => {
-    scrollSpy.update()
-  })
-
   return (
-    <main className="relative">
-      <Header />
-      <Element name="about">
-        <About />
-      </Element>
-      <Element name="skills">
-        <Skills />
-      </Element>
-      <Element name="education">
-        <Education />
-      </Element>
-      <Element name="projects">
+    <main className="container mx-auto my-8">
+      <div className="flex flex-col gap-6 md:hidden">
+        <Sidebar />
+        <Experience />
         <Projects />
-      </Element>
-      <Element name="contact">
-        <Contact />
-      </Element>
+        <Languages />
+        <div className="grid gap-6">
+          <Skills />
+          <Education />
+        </div>
+      </div>
+      <div className="hidden md:grid md:grid-cols-[16rem_1fr] md:gap-6">
+        <Sidebar />
+        <Projects />
+        <div className="grid gap-6">
+          <Education />
+          <Experience />
+          <Languages />
+        </div>
+        <Skills />
+      </div>
     </main>
   )
 }
