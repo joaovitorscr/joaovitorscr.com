@@ -58,7 +58,7 @@ const DataContext = createContext<JsonData[]>([])
 
 const fetchJsonData = async (): Promise<JsonData[]> => {
   try {
-    const response = await fetch('@/../data.json')
+    const response = await fetch('/data.json')
     const data: JsonData[] = await response.json()
     return data
   } catch (error) {

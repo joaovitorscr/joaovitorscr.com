@@ -51,8 +51,8 @@ export function Projects() {
                       </ProjectCardDescription>
                     </ProjectCardRoot>
                   </DialogTrigger>
-                  <DialogContent className="h-[52svh]">
-                    <ProjectCardRoot className="grid grid-cols-1  md:grid-cols-2 md:gap-4">
+                  <DialogContent className="h-[52svh] md:h-auto">
+                    <ProjectCardRoot className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
                       <div className="flex flex-col gap-4">
                         <img
                           className="rounded-md mt-4"
