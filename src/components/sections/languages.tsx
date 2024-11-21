@@ -1,8 +1,7 @@
-import { useDataContext } from '@/hooks/data-context'
-import { SectionBorder } from '@/shared/components/section-border'
+import { IPersonalData } from '@/app/types/data/personal-data'
+import { SectionBorder } from '@/components/ui/section-border'
 
-export function Languages() {
-  const [data] = useDataContext()
+export function Languages({ data }: { data: IPersonalData}) {
   return (
     <SectionBorder title="Languages">
       <ul>

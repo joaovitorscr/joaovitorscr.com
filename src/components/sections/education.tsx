@@ -1,9 +1,7 @@
-import { useDataContext } from '@/hooks/data-context'
-import { SectionBorder } from '../components/section-border'
+import { IPersonalData } from '@/app/types/data/personal-data'
+import { SectionBorder } from '../ui/section-border'
 
-export function Education() {
-  const [data] = useDataContext()
-
+export function Education({ data }: { data: IPersonalData }) {
   return (
     <SectionBorder title="Education">
       <div>

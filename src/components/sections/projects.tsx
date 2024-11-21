@@ -1,28 +1,26 @@
-import { useDataContext } from '@/hooks/data-context'
-import { Carousel, CarouselContent, CarouselItem } from '../components/carousel'
-import { SectionBorder } from '../components/section-border'
+import { JsonData, useDataContext } from '@/hooks/data-context'
+import { Carousel, CarouselContent, CarouselItem } from '../ui/carousel'
+import { SectionBorder } from '../ui/section-border'
 import {
   ProjectCardDescription,
   ProjectCardRoot,
   ProjectCardSubTitle,
   ProjectCardTitle,
-} from '../components/project-card'
+} from '../ui/project-card'
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
-} from '@/shared/components/alert-dialog'
-import { buttonVariants } from '../components/button'
+} from '@/components/ui/alert-dialog'
+import { buttonVariants } from '../ui/button'
 import { cn } from '@/lib/utils'
-import { GithubIcon } from '@/assets/img/sidebar-icons/github-icon'
 import { Radio } from 'lucide-react'
+import GitHubIcon from '#/assets/img/profile-link-icons/github'
+import { IPersonalData } from '@/app/types/data/personal-data'
 
-// TODO: Change desktop projects to a carousel, refactor some code. Maybe zoom on the image when clicked it on modal open.
-
-export function Projects() {
-  const [data] = useDataContext()
+export function Projects({ data }: { data: IPersonalData }) {
   return (
-    <SectionBorder title="Projects" className="max-w-[1056px]">
+    <SectionBorder title="Projects" className="w-full">
       <div>
         <Carousel
           opts={{
@@ -69,7 +67,7 @@ export function Projects() {
                             }),
                           )}
                         >
-                          <GithubIcon className="size-6" />
+                          <GitHubIcon className="size-6 fill-white" />
                           <span>GitHub Repository</span>
                         </a>
                         {item.links.live ? (
@@ -111,7 +109,7 @@ export function Projects() {
                               }),
                             )}
                           >
-                            <GithubIcon className="size-6" />
+                            <GitHubIcon className="size-6 fill-white" />
                             <span>GitHub Repository</span>
                           </a>
                           {item.links.live ? (

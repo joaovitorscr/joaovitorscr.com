@@ -12,9 +12,9 @@ export function SectionBorder({
   className,
 }: SectionBorderInterface) {
   return (
-    <div className={cn('relative', className)}>
-      <div className="absolute -translate-y-1/2 left-[1rem] top-0 bg-background px-2 z-20">
-        <h2 className="font-medium text-lg tracking-widest uppercase">
+    <div className={cn('relative rounded-lg bg-card shadow-lg', className)}>
+      <div className="absolute bg-primary -translate-y-1/2 left-[1rem] top-0 px-2 z-20">
+        <h2 className="font-medium text-white text-md tracking-widest uppercase">
           {title}
         </h2>
       </div>

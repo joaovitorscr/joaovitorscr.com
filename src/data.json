@@ -1,0 +1,70 @@
+{
+  "projects": [
+    {
+      "name": "Cash App",
+      "type": "Frontend",
+      "purpose": "Personal Project",
+      "image": {
+        "thumbnail": "https://i.imgur.com/Qs3f4fM.png"
+      },
+      "links": {
+        "github": "https://github.com/joaovitorscr/cash-app",
+        "live": "https://cash-app-sigma.vercel.app/"
+      },
+      "description": "Website built with the goal of simulate the UI/UX for a banking app. Project build with Next.js and TailwindCSS."
+    }
+  ],
+  "personal": {
+    "avatar": "https://avatars.githubusercontent.com/u/98563963?v=4",
+    "name": "João Vitor Santos Cruz",
+    "handler": "joaovitorscr",
+    "githubUrl": "https://github.com/joaovitorscr",
+    "linkedinUrl": "https://www.linkedin.com/in/joaovitorscruz/",
+    "bio": "Frontend Developer working on expanding his knowledge about tech."
+  },
+  "education": [
+    {
+      "course": "System Analysis and Development",
+      "institution": "Anhanguera",
+      "timeSpan": "2023 - Current"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Anexs Tecnologia",
+      "role": "Trainee",
+      "timeSpan": "2024 - Current"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Portuguese",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"
+    },
+    {
+      "name": "English",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"
+    }
+  ],
+  "skills": {
+    "hard": [
+      { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+      { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" },
+      { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+      { "name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+      { "name": "Sass", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" },
+      { "name": "TailwindCSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+      { "name": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" }, 
+      { "name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" },
+      { "name": "Ubuntu", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" },
+      { "name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
+      { "name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+      { "name": "Angular", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" },
+      { "name": "Javascript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" }
+    ],
+    "soft": [
+      {"name": "Communication", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"}
+    ]
+  }
+
+}

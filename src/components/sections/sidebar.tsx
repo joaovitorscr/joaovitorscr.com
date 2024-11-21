@@ -1,10 +1,8 @@
-import { GithubIcon } from '@/assets/img/sidebar-icons/github-icon'
-import { LinkedinIcon } from '@/assets/img/sidebar-icons/linkedin-icon'
-import { useDataContext } from '@/hooks/data-context'
+import { IPersonalData } from '@/app/types/data/personal-data'
+import GitHubIcon from '#/assets/img/profile-link-icons/github'
+import LinkedinIcon from '#/assets/img/profile-link-icons/linkedin'
 
-export function Sidebar() {
-  const [data] = useDataContext()
-
+export function Sidebar({ data }: { data: IPersonalData }) {
   return (
     <div className="space-y-4 border rounded-lg px-4 py-6">
       <div className="flex flex-col align-center text-center">
@@ -13,14 +11,14 @@ export function Sidebar() {
           alt="Avatar"
           className="rounded-full size-16 mx-auto"
         />
-        <h3 className="font-medium text-lg">{data.personal.name}</h3>
+        <h1 className="font-medium text-lg">{data.personal.name}</h1>
         <h4 className="text-subText">{data.personal.handler}</h4>
       </div>
       <nav>
         <ul className="flex justify-center gap-4 items-center">
           <li>
             <a href={data.personal.githubUrl} target="#blank">
-              <GithubIcon className="size-10 fill-white hover:fill-zinc-200 transition ease-in-out delay-75 hover:scale-105" />
+              <GitHubIcon className="size-10 fill-white hover:fill-zinc-200 transition ease-in-out delay-75 hover:scale-105" />
             </a>
           </li>
           <li>
@@ -30,9 +28,7 @@ export function Sidebar() {
           </li>
         </ul>
       </nav>
-      <div>
-        <p className="text-pretty text-center">{data.personal.bio}</p>
-      </div>
+      <p className="text-pretty text-center">{data.personal.bio}</p>
     </div>
   )
 }
