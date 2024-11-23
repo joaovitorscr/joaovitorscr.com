@@ -9,16 +9,18 @@ import { SoftSkills } from '@/components/sections/soft-skills'
 
 function App() {
   return (
-    <main className="container py-8 md:py-0 md:flex flex-col items-center justify-center h-dvh overflow-y-auto">
-      <div className="grid grid-cols-1 md:grid-cols-[15rem_1fr] lg:grid-cols-[20rem_1fr] gap-8">
-        <Sidebar data={data} />
-        <Projects data={data} />
-        <div className="grid grid-cols-1 gap-8">
+    <main className="container flex flex-col items-center h-dvh p-8">
+      <div className="grid h-full gap-8 grid-cols-1 lg:grid-cols-[15rem_1fr]">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_30rem] lg:grid-cols-[15rem_1fr] gap-8 lg:col-span-2">
+          <Sidebar data={data} />
+          <Projects data={data} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 lg:col-span-1 gap-8">
           <Education data={data} />
           <Experience data={data} />
           <Languages data={data} />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:col-span-1 gap-8">
           <HardSkills data={data} />
           <SoftSkills data={data} />
         </div>

@@ -48,23 +48,28 @@
   ],
   "skills": {
     "hard": [
-      { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-      { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" },
-      { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-      { "name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-      { "name": "Sass", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" },
-      { "name": "TailwindCSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-      { "name": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" }, 
-      { "name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" },
-      { "name": "Ubuntu", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" },
-      { "name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-      { "name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
-      { "name": "Angular", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" },
-      { "name": "Javascript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" }
+      { "name": "TypeScript", "icon": "/assets/img/skills-icons/hard-skills/typescript.svg" },
+      { "name": "Node.js", "icon": "/assets/img/skills-icons/hard-skills/node.svg" },
+      { "name": "React", "icon": "/assets/img/skills-icons/hard-skills/react.svg" },
+      { "name": "Next.js", "icon": "/assets/img/skills-icons/hard-skills/next.svg" },
+      { "name": "Sass", "icon": "/assets/img/skills-icons/hard-skills/sass.svg"},
+      { "name": "TailwindCSS", "icon": "/assets/img/skills-icons/hard-skills/tailwind.svg" },
+      { "name": "PostgreSQL", "icon": "/assets/img/skills-icons/hard-skills/postgre.svg" }, 
+      { "name": "MySQL", "icon": "/assets/img/skills-icons/hard-skills/mysql.svg" },
+      { "name": "Linux", "icon": "/assets/img/skills-icons/hard-skills/linux.svg" },
+      { "name": "Docker", "icon": "/assets/img/skills-icons/hard-skills/docker.svg" },
+      { "name": "Git", "icon": "/assets/img/skills-icons/hard-skills/git.svg" },
+      { "name": "Angular", "icon": "/assets/img/skills-icons/hard-skills/angular.svg" },
+      { "name": "Javascript", "icon": "/assets/img/skills-icons/hard-skills/javascript.svg" }
     ],
     "soft": [
-      {"name": "Communication", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"}
+      { "name": "Communication", "icon": "/assets/img/skills-icons/soft-skills/communication.svg" },
+      { "name": "Team Work", "icon": "/assets/img/skills-icons/soft-skills/team-work.svg" },
+      { "name": "Time Management", "icon": "/assets/img/skills-icons/soft-skills/time-management.svg" }, 
+      { "name": "Creativity", "icon": "/assets/img/skills-icons/soft-skills/creativity.svg" },
+      { "name": "Problem Solving", "icon": "/assets/img/skills-icons/soft-skills/problem-solving.svg" },
+      { "name": "Fast Learner", "icon": "/assets/img/skills-icons/soft-skills/fast-learner.svg" },
+      { "name": "Attention To Detail", "icon": "/assets/img/skills-icons/soft-skills/attention-to-detail.svg" }
     ]
   }
-
 }
