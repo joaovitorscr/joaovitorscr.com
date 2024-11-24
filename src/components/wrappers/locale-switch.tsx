@@ -19,7 +19,6 @@ export function LocaleSwitch() {
     const newLanguage = lang === 'en' ? 'pt' : 'en'
 
     changeLanguage(newLanguage)
-    localStorage.setItem('preferred-locale', newLanguage)
   }
 
   return (
