@@ -10,6 +10,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "#/*": [
+        "./public/*"
       ]
     },
 
@@ -27,6 +30,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "public/assets"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
