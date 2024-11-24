@@ -32,7 +32,7 @@ export function Projects({ data }: { data: IPersonalData }) {
               <Card>
                 <CardHeader>
                   <img
-                    className="rounded-md w-full object-fill border"
+                    className="rounded-md w-full h-32 object-fill"
                     src={item.image.thumbnail}
                     alt={item.name}
                   />
@@ -47,6 +47,7 @@ export function Projects({ data }: { data: IPersonalData }) {
                 </CardContent>
                 <CardFooter className="justify-end">
                   <a
+                    target="#blank"
                     href={item.links.github}
                     className={buttonVariants({
                       variant: 'ghost',

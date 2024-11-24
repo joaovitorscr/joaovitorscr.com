@@ -5,11 +5,10 @@
       "type": "Frontend",
       "purpose": "Personal Project",
       "image": {
-        "thumbnail": "https://i.imgur.com/Qs3f4fM.png"
+        "thumbnail": "/assets/img/projects/cash-app.png"
       },
       "links": {
-        "github": "https://github.com/joaovitorscr/cash-app",
-        "live": "https://cash-app-sigma.vercel.app/"
+        "github": "https://github.com/joaovitorscr/new-cash-app"
       },
       "description": "Website built with the goal of simulate the UI/UX for a banking app. Project build with Next.js and TailwindCSS."
     }
