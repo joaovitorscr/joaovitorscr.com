@@ -7,7 +7,6 @@ export interface IProject {
   }
   links: {
     github: string
-    live: string
   }
   description: string
 }

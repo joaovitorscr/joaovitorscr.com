@@ -11,7 +11,7 @@ export function Education({ data }: { data: IPersonalData }) {
   return (
     <SectionBorder title={language === 'en' ? 'Education' : 'Educação'}>
       <div>
-        {data.education.map((item, index) => {
+        {data.education.map((_item, index) => {
           return (
             <div key={index}>
               <h2 className="font-medium">{t(`education.${index}.course`)}</h2>

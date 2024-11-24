@@ -11,7 +11,7 @@ export function Experience({ data }: { data: IPersonalData }) {
   return (
     <SectionBorder title={language === 'en' ? 'Experience' : 'Experiência'}>
       <div>
-        {data.experience.map((item, index) => (
+        {data.experience.map((_item, index) => (
           <div key={index}>
             <h2 className="font-medium">{t(`experience.${index}.company`)}</h2>
             <h3 className="text-sm text-subText">
