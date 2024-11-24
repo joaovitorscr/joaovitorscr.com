@@ -1,10 +1,13 @@
 import { IPersonalData } from '@/app/types/data/personal-data'
 import GitHubIcon from '#/assets/img/profile-link-icons/github'
 import LinkedinIcon from '#/assets/img/profile-link-icons/linkedin'
+import { useTranslation } from 'react-i18next'
 
 export function Sidebar({ data }: { data: IPersonalData }) {
+  const { t } = useTranslation()
+
   return (
-    <div className="space-y-4 border rounded-lg px-4 py-6">
+    <div className="space-y-4 border rounded-lg px-4 py-6 h-full">
       <div className="flex flex-col align-center text-center">
         <img
           src={data.personal.avatar}
@@ -28,7 +31,7 @@ export function Sidebar({ data }: { data: IPersonalData }) {
           </li>
         </ul>
       </nav>
-      <p className="text-pretty text-center">{data.personal.bio}</p>
+      <p className="text-pretty text-center">{t('personal.bio')}</p>
     </div>
   )
 }

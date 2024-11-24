@@ -1,24 +1,17 @@
-import { cn } from '@/lib/utils'
-
 interface SectionBorderInterface {
   children: JSX.Element
   title: string
-  className?: string
 }
 
-export function SectionBorder({
-  children,
-  title,
-  className,
-}: SectionBorderInterface) {
+export function SectionBorder({ children, title }: SectionBorderInterface) {
   return (
-    <div className={cn('relative rounded-lg bg-card shadow-lg', className)}>
-      <div className="absolute bg-primary -translate-y-1/2 left-[1rem] top-0 px-2 z-20">
-        <h2 className="font-medium text-white text-md tracking-widest uppercase">
+    <div className="bg-card border rounded-lg">
+      <div className="-translate-y-1/2 translate-x-5">
+        <span className="font-medium text-primary-foreground text-md tracking-widest uppercase bg-primary px-2 py-1">
           {title}
-        </h2>
+        </span>
       </div>
-      <div className="border rounded-lg px-4 py-6 h-full">{children}</div>
+      <div className="p-2">{children}</div>
     </div>
   )
 }

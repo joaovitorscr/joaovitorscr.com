@@ -7,7 +7,7 @@ export function HardSkills({ data }: { data: IPersonalData }) {
     <SectionBorder title="Hard skills">
       <div className="grid grid-cols-5 md:grid-cols-4 lg:grid-cols-5 gap-4 select-none">
         {data.skills.hard.map((item, index) => (
-          <SkillsCard key={index} skill={item} />
+          <SkillsCard key={index} icon={item.icon} name={item.name} />
         ))}
       </div>
     </SectionBorder>
