@@ -1,155 +1,36 @@
-![joaovitorscr Portfolio](https://github.com/joaovitorscr/portfolio/blob/main/public/assets/portfolio-store.png)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# joaovitorscr Portfolio
+## Getting Started
 
-I developed my own portfolio to showcase my skills and habilities to possible clients and employers.
-
-
-
-## Tech Stack
-
-React 18, TailwindCSS, Shadcn UI.
-
-## Run Locally
-
-Check if you have installed Node.js 18+, if not you can install with this [link.](https://nodejs.org/pt/download/package-manager)
-
-Clone the project:
+First, run the development server:
 
 ```bash
-  git clone git@github.com:joaovitorscr/portfolio.git
-
-  or
-
-  git clone https://github.com/joaovitorscr/portfolio.git
-
-  or
-
-  gh repo gh repo clone joaovitorscr/portfolio
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Enter the created directory.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-  cd portfolio
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Install dependencies.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-  npm install
+## Learn More
 
-  or
+To learn more about Next.js, take a look at the following resources:
 
-  yarn install
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-  or
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-  pnpm install
-```
+## Deploy on Vercel
 
-Start the app.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-```bash
-  npm run build && npm run start
-
-  or
-
-  yarn build && yarn start
-
-  or
-
-  pnpm build && pnpm start
-```
-
-
-## Project Structure
-
-.  
-├── index.html  
-├── package.json  
-├── pnpm-lock.yaml  
-├── postcss.config.js  
-├── public  
-│   ├── assets  
-│   │   └── img  
-│   │       ├── flags  
-│   │       │   ├── br.svg  
-│   │       │   └── us.svg  
-│   │       ├── profile-link-icons  
-│   │       │   ├── github.tsx  
-│   │       │   └── linkedin.tsx  
-│   │       ├── projects  
-│   │       │   └── cash-app.png  
-│   │       └── skills-icons  
-│   │           ├── hard-skills  
-│   │           │   ├── angular.svg  
-│   │           │   ├── docker.svg  
-│   │           │   ├── git.svg  
-│   │           │   ├── javascript.svg  
-│   │           │   ├── linux.svg  
-│   │           │   ├── mysql.svg  
-│   │           │   ├── next.svg  
-│   │           │   ├── node.svg  
-│   │           │   ├── postgre.svg  
-│   │           │   ├── react.svg  
-│   │           │   ├── sass.svg  
-│   │           │   ├── tailwind.svg  
-│   │           │   └── typescript.svg  
-│   │           └── soft-skills  
-│   │               ├── attention-to-detail.svg  
-│   │               ├── communication.svg  
-│   │               ├── creativity.svg  
-│   │               ├── fast-learner.svg  
-│   │               ├── problem-solving.svg  
-│   │               ├── team-work.svg  
-│   │               └── time-management.svg  
-│   └── letter-j.svg  
-├── README.md  
-├── src  
-│   ├── app  
-│   │   ├── App.tsx  
-│   │   ├── index.css  
-│   │   └── types  
-│   │       ├── data  
-│   │       │   └── personal-data.ts  
-│   │       ├── education.ts  
-│   │       ├── experience.ts  
-│   │       ├── language.ts  
-│   │       ├── personal-info.ts  
-│   │       ├── project.ts  
-│   │       └── skill.ts  
-│   ├── components  
-│   │   ├── sections  
-│   │   │   ├── education.tsx  
-│   │   │   ├── experience.tsx  
-│   │   │   ├── hard-skills.tsx  
-│   │   │   ├── languages.tsx  
-│   │   │   ├── projects.tsx  
-│   │   │   ├── sidebar.tsx  
-│   │   │   └── soft-skills.tsx  
-│   │   ├── ThemeProvider.tsx  
-│   │   ├── ui  
-│   │   │   ├── alert-dialog.tsx  
-│   │   │   ├── button.tsx  
-│   │   │   ├── card.tsx  
-│   │   │   ├── carousel.tsx  
-│   │   │   ├── dropdown-menu.tsx  
-│   │   │   ├── project-card.tsx  
-│   │   │   ├── section-border.tsx  
-│   │   │   └── skills-card.tsx  
-│   │   └── wrappers  
-│   │       └── locale-switch.tsx  
-│   ├── data.json  
-│   ├── dictionaries  
-│   │   ├── en.json  
-│   │   └── pt.json  
-│   ├── i18n.ts  
-│   ├── lib  
-│   │   └── utils.ts  
-│   ├── main.tsx  
-│   └── vite-env.d.ts  
-├── tailwind.config.ts  
-├── tsconfig.json  
-├── tsconfig.node.json  
-└── vite.config.ts  
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
