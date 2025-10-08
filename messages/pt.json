@@ -1,5 +1,82 @@
 {
-  "home": {
-    "greeting": "Olá, eu sou o João Vitor"
+  "portfolio": {
+    "profile": {
+      "name": "João Vitor",
+      "title": "Desenvolvedor Frontend",
+      "avatarUrl": "https://github.com/joaovitorscr.png",
+      "avatarFallback": "JV",
+      "socialLinks": {
+        "github": {
+          "href": "https://www.github.com/joaovitorscr",
+          "tooltip": "Visite Meu Perfil do GitHub"
+        },
+        "linkedin": {
+          "href": "https://www.linkedin.com/in/joaovitorscr/",
+          "tooltip": "Visite Meu Perfil do LinkedIn"
+        },
+        "calendar": {
+          "href": "https://cal.com/joaovitorscr",
+          "tooltip": "Agende Uma Reunião Comigo no Cal.com"
+        }
+      }
+    },
+    "sections": {
+      "experience": {
+        "title": "Experiência",
+        "items": [
+          {
+            "title": "Desenvolvedor Frontend",
+            "company": "Anexs Tecnologia",
+            "period": "2025 - Atual",
+            "description": "Construí sites responsivos e aplicações web para vários clientes. Especializado em React, TypeScript e frameworks CSS modernos."
+          },
+          {
+            "title": "Estagiário",
+            "company": "Anexs Tecnologia",
+            "period": "2024 - 2025",
+            "description": "Contribuí para o desenvolvimento frontend e aprendi tecnologias web modernas. Colaborei com desenvolvedores backend para implementar recursos impactantes."
+          }
+        ]
+      },
+      "skills": {
+        "title": "Habilidades",
+        "categories": [
+          {
+            "name": "Frontend",
+            "items": [
+              "React",
+              "Next.js",
+              "Angular",
+              "TypeScript",
+              "Tailwind CSS",
+              "SASS",
+              "JavaScript"
+            ]
+          },
+          {
+            "name": "Ferramentas & Outros",
+            "items": [
+              "Git",
+              "Figma",
+              "APIs REST",
+              "Design Responsivo",
+              "Otimização de Performance"
+            ]
+          }
+        ]
+      },
+      "projects": {
+        "title": "Projetos",
+        "items": [
+          {
+            "title": "Cash App",
+            "description": "Site construído com o objetivo de simular a UI/UX de um aplicativo bancário. Projeto construído com Next.js e TailwindCSS.",
+            "technologies": ["Next.js", "Tailwind", "React", "TypeScript"],
+            "link": "https://github.com/joaovitorscr/new-cash-app",
+            "linkText": "Ver"
+          }
+        ]
+      }
+    }
   }
 }
