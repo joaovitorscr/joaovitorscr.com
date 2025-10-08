@@ -247,6 +247,53 @@ This is a standard Next.js application and can be deployed to any platform that 
 - [Render](https://render.com/)
 - [AWS Amplify](https://aws.amazon.com/amplify/)
 
+## 🎨 Generating Icons
+
+The project includes multiple ways to generate all necessary favicon and app icons.
+
+### Quick Start (Automated Script)
+
+If you have ImageMagick installed:
+
+```bash
+# Install ImageMagick (if not already installed)
+brew install imagemagick  # macOS
+# or
+sudo apt-get install imagemagick  # Linux
+
+# Run the generation script
+./generate-icons.sh
+```
+
+All icons will be automatically generated in the `/public` folder!
+
+### Alternative: Browser Tool
+
+1. Open `generate-icons.html` in your browser
+2. Click the download buttons for each icon size
+3. Save all PNG files to the `/public` folder
+4. Done! Your icons are ready
+
+### Included Icons
+
+- ✅ `favicon.svg` - Modern SVG favicon
+- ✅ `icon.svg` - High-quality app icon
+- 📦 `icon-192.png` - PWA icon (192x192)
+- 📦 `icon-512.png` - PWA icon (512x512)
+- 📦 `apple-icon.png` - Apple touch icon (180x180)
+- 📦 `icon-192-maskable.png` - Maskable PWA icon
+- 📦 `icon-512-maskable.png` - Maskable PWA icon
+
+### Customizing Icons
+
+Edit the SVG files in `/public` to customize colors or design:
+
+```svg
+<!-- Change gradient colors -->
+<stop offset="0%" stop-color="#7c3aed"/>
+<stop offset="100%" stop-color="#2563eb"/>
+```
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
