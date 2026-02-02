@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "joaovitorscr | Desarrollador Web",
+    "description": "Desarrollador Frontend especializado en React, Next.js y TypeScript. Creando aplicaciones web modernas y responsivas con excelentes experiencias de usuario."
+  },
+  "portfolio": {
+    "profile": {
+      "name": "João Vitor",
+      "title": "Desarrollador Frontend",
+      "avatarUrl": "https://github.com/joaovitorscr.png",
+      "avatarFallback": "JV",
+      "socialLinks": {
+        "github": {
+          "href": "https://www.github.com/joaovitorscr",
+          "tooltip": "Visitar mi perfil de GitHub"
+        },
+        "linkedin": {
+          "href": "https://www.linkedin.com/in/joaovitorscr/",
+          "tooltip": "Visitar mi perfil de LinkedIn"
+        },
+        "calendar": {
+          "href": "https://cal.com/joaovitorscr",
+          "tooltip": "Programar una reunión conmigo en Cal.com"
+        }
+      }
+    },
+    "sections": {
+      "experience": {
+        "title": "Experiencia",
+        "items": [
+          {
+            "title": "Desarrollador Frontend",
+            "company": "Anexs Tecnologia",
+            "period": "2025 - Actualidad",
+            "description": "Desarrollé sitios web y aplicaciones web responsivas para diversos clientes. Especializado en React, TypeScript y frameworks modernos de CSS."
+          },
+          {
+            "title": "Practicante",
+            "company": "Anexs Tecnologia",
+            "period": "2024 - 2025",
+            "description": "Contribuí al desarrollo frontend y aprendí tecnologías web modernas. Colaboré con desarrolladores backend para implementar funcionalidades de impacto."
+          }
+        ]
+      },
+      "skills": {
+        "title": "Habilidades",
+        "categories": [
+          {
+            "name": "Frontend",
+            "items": [
+              "React",
+              "Next.js",
+              "Angular",
+              "TypeScript",
+              "Tailwind CSS",
+              "SASS",
+              "JavaScript",
+              "TRPC"
+            ]
+          },
+          {
+            "name": "Herramientas y Otros",
+            "items": [
+              "Git",
+              "Figma",
+              "APIs REST",
+              "Diseño Responsivo",
+              "Optimización de Rendimiento"
+            ]
+          }
+        ]
+      },
+      "projects": {
+        "title": "Proyectos",
+        "items": [
+          {
+            "title": "Testimony.io",
+            "type": "Proyecto Personal",
+            "description": "Plataforma para que empresas recopilen y muestren testimonios.",
+            "technologies": [
+              "Next.js",
+              "Tailwind",
+              "React",
+              "TypeScript",
+              "TRPC",
+              "PostgreSQL"
+            ],
+            "liveUrl": "https://testimony.io.joaovitorscr.com",
+            "liveUrlText": "Aplicación",
+            "repositoryUrl": "https://github.com/joaovitorscr/testimony.io",
+            "repositoryUrlText": "Repositorio"
+          }
+        ]
+      }
+    }
+  }
+}
