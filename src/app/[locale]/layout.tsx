@@ -6,6 +6,8 @@ import { getTranslations } from "next-intl/server";
 import { StructuredData } from "@/components/structured-data";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
+export const dynamic = "force-static";
+
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
