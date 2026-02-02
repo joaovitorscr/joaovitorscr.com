@@ -54,7 +54,8 @@
               "TypeScript",
               "Tailwind CSS",
               "SASS",
-              "JavaScript"
+              "JavaScript",
+              "TRPC"
             ]
           },
           {
@@ -73,11 +74,21 @@
         "title": "Projects",
         "items": [
           {
-            "title": "Cash App",
-            "description": "Website built with the goal of simulate the UI/UX for a banking app. Project build with Next.js and TailwindCSS.",
-            "technologies": ["Next.js", "Tailwind", "React", "TypeScript"],
-            "link": "https://github.com/joaovitorscr/new-cash-app",
-            "linkText": "View"
+            "title": "Testimony.io",
+            "type": "Personal Project",
+            "description": "Platform for companies collect and display testimonies.",
+            "technologies": [
+              "Next.js",
+              "Tailwind",
+              "React",
+              "TypeScript",
+              "TRPC",
+              "PostgreSQL"
+            ],
+            "liveUrl": "https://testimony.io.joaovitorscr.com",
+            "liveUrlText": "Application",
+            "repositoryUrl": "https://github.com/joaovitorscr/testimony.io",
+            "repositoryUrlText": "Repository"
           }
         ]
       }

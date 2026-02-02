@@ -1,4 +1,5 @@
 import { CalendarIcon } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { GitHubIcon } from "@/components/github-icon";
@@ -53,7 +54,7 @@ export function ProfileSection() {
                     variant: "ghost",
                     size: "icon-sm",
                   })}
-                  href={t(`socialLinks.${linkType}.href`)}
+                  href={t(`socialLinks.${linkType}.href`) as Route}
                   target="_blank"
                 >
                   <Icon />

@@ -1,3 +1,6 @@
+import { FolderIcon, GlobeIcon } from "lucide-react";
+import type { Route } from "next";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -27,7 +30,12 @@ export function ProjectsSection() {
         {projects.map((project, index) => (
           <Item key={project.title} className="bg-card" variant="outline">
             <ItemContent>
-              <ItemTitle>{t(`items.${index}.title`)}</ItemTitle>
+              <div className="flex items-center gap-2">
+                <ItemTitle>{t(`items.${index}.title`)}</ItemTitle>
+                <Badge variant="secondary" className="text-xs">
+                  {t(`items.${index}.type`)}
+                </Badge>
+              </div>
               <ItemDescription>
                 {t(`items.${index}.description`)}
               </ItemDescription>
@@ -40,17 +48,30 @@ export function ProjectsSection() {
               </div>
             </ItemContent>
             <ItemActions>
-              <a
+              <Link
                 className={buttonVariants({
                   variant: "ghost",
                   size: "sm",
                 })}
-                href={t(`items.${index}.link`)}
+                href={t(`items.${index}.liveUrl`) as Route}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t(`items.${index}.linkText`)}
-              </a>
+                <GlobeIcon />
+                {t(`items.${index}.liveUrlText`)}
+              </Link>
+              <Link
+                className={buttonVariants({
+                  variant: "ghost",
+                  size: "sm",
+                })}
+                href={t(`items.${index}.repositoryUrl`) as Route}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FolderIcon />
+                {t(`items.${index}.repositoryUrlText`)}
+              </Link>
             </ItemActions>
           </Item>
         ))}
