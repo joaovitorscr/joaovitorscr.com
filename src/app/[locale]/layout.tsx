@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { Geist_Mono, Nunito_Sans } from "next/font/google";
 import "@/app/globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { StructuredData } from "@/components/structured-data";
 import { TooltipProvider } from "@/components/ui/tooltip";
-
-export const dynamic = "force-static";
+import type { Locale } from "@/i18n/config";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -25,7 +28,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({
-    locale: locale as "en" | "pt",
+    locale: locale as Locale,
     namespace: "metadata",
   });
 
@@ -66,6 +69,7 @@ export async function generateMetadata({
       languages: {
         en: `${baseUrl}/en`,
         pt: `${baseUrl}/pt`,
+        es: `${baseUrl}/es`,
       },
     },
     icons: {
@@ -116,16 +120,22 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+  const validLocale = locale as Locale;
+
+  // Required for static rendering: tell next-intl which locale this request uses
+  setRequestLocale(validLocale);
+
+  const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={validLocale} className="dark">
       <head>
         <StructuredData />
       </head>
       <body
         className={`${nunitoSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={validLocale} messages={messages}>
           <TooltipProvider>{children}</TooltipProvider>
         </NextIntlClientProvider>
       </body>
