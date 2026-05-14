@@ -1,7 +1,8 @@
 import { FolderIcon, GlobeIcon } from "lucide-react";
 import type { Route } from "next";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -36,9 +37,7 @@ export function ProjectsSection() {
                   {t(`items.${index}.type`)}
                 </Badge>
               </div>
-              <ItemDescription>
-                {t(`items.${index}.description`)}
-              </ItemDescription>
+              <ItemDescription>{t(`items.${index}.description`)}</ItemDescription>
               <div className="flex flex-wrap gap-2 mt-3">
                 {project.technologies.map((tech, techIndex) => (
                   <Badge key={tech} variant="outline" className="text-xs">

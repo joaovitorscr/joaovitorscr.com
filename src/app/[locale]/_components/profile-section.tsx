@@ -1,7 +1,8 @@
 import { CalendarIcon } from "lucide-react";
 import type { Route } from "next";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 import { GitHubIcon } from "@/components/github-icon";
 import { LinkedInIcon } from "@/components/linkedin-icon";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -14,11 +15,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const iconMap = {
   github: GitHubIcon,
@@ -60,9 +57,7 @@ export function ProfileSection() {
                   <Icon />
                 </Link>
               </TooltipTrigger>
-              <TooltipContent>
-                {t(`socialLinks.${linkType}.tooltip`)}
-              </TooltipContent>
+              <TooltipContent>{t(`socialLinks.${linkType}.tooltip`)}</TooltipContent>
             </Tooltip>
           );
         })}

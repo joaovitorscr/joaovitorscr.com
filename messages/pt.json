@@ -60,13 +60,7 @@
           },
           {
             "name": "Ferramentas & Outros",
-            "items": [
-              "Git",
-              "Figma",
-              "APIs REST",
-              "Design Responsivo",
-              "Otimização de Performance"
-            ]
+            "items": ["Git", "Figma", "APIs REST", "Design Responsivo", "Otimização de Performance"]
           }
         ]
       },
@@ -77,14 +71,7 @@
             "title": "Testimony.io",
             "type": "Projeto Pessoal",
             "description": "Platform for companies collect and display testimonies",
-            "technologies": [
-              "Next.js",
-              "Tailwind",
-              "React",
-              "TypeScript",
-              "TRPC",
-              "PostgreSQL"
-            ],
+            "technologies": ["Next.js", "Tailwind", "React", "TypeScript", "TRPC", "PostgreSQL"],
             "liveUrl": "https://testimony.io.joaovitorscr.com",
             "liveUrlText": "Aplicação",
             "repositoryUrl": "https://github.com/joaovitorscr/testimony.io",

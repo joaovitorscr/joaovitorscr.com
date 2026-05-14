@@ -10,10 +10,7 @@ export function StructuredData() {
     jobTitle: t("profile.title"),
     url: "https://joaovitorscr.com",
     image: t("profile.avatarUrl"),
-    sameAs: [
-      t("profile.socialLinks.github.href"),
-      t("profile.socialLinks.linkedin.href"),
-    ],
+    sameAs: [t("profile.socialLinks.github.href"), t("profile.socialLinks.linkedin.href")],
     knowsAbout: [
       "React",
       "Next.js",

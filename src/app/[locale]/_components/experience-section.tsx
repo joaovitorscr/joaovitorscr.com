@@ -1,11 +1,6 @@
 import { useTranslations } from "next-intl";
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemTitle,
-} from "@/components/ui/item";
+
+import { Item, ItemContent, ItemDescription, ItemGroup, ItemTitle } from "@/components/ui/item";
 
 export function ExperienceSection() {
   const t = useTranslations("portfolio.sections.experience");
@@ -21,11 +16,7 @@ export function ExperienceSection() {
       <h2 className="text-lg font-semibold px-1">{t("title")}</h2>
       <ItemGroup>
         {items.map((item, index) => (
-          <Item
-            key={`${item.company}-${item.title}`}
-            className="bg-card"
-            variant="outline"
-          >
+          <Item key={`${item.company}-${item.title}`} className="bg-card" variant="outline">
             <ItemContent>
               <ItemTitle>{t(`items.${index}.title`)}</ItemTitle>
               <ItemDescription>

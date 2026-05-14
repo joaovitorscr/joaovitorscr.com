@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Nunito_Sans } from "next/font/google";
-import "@/app/globals.css";
 import { NextIntlClientProvider } from "next-intl";
-import {
-  getMessages,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
+
+import "@/app/globals.css";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { Geist_Mono, Nunito_Sans } from "next/font/google";
+
 import { StructuredData } from "@/components/structured-data";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Locale } from "@/i18n/config";
@@ -132,9 +130,7 @@ export default async function RootLayout({
       <head>
         <StructuredData />
       </head>
-      <body
-        className={`${nunitoSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
+      <body className={`${nunitoSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <NextIntlClientProvider locale={validLocale} messages={messages}>
           <TooltipProvider>{children}</TooltipProvider>
         </NextIntlClientProvider>

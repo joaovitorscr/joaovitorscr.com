@@ -57,18 +57,20 @@ A modern, minimal portfolio website built with Next.js 15, featuring multilingua
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/joaovitorscr/joaovitorscr.com.git
 cd joaovitorscr.com
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -80,6 +82,7 @@ bun install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -269,6 +272,7 @@ This portfolio is fully optimized for search engines with comprehensive SEO feat
 ### SEO Best Practices
 
 **Robots.txt**: Allows all crawlers and points to sitemap
+
 ```
 User-agent: *
 Allow: /
@@ -276,12 +280,14 @@ Sitemap: https://joaovitorscr.com/sitemap.xml
 ```
 
 **Sitemap**: Includes all pages with proper hreflang alternates
+
 ```xml
 <xhtml:link rel="alternate" hreflang="en" href="https://joaovitorscr.com/en"/>
 <xhtml:link rel="alternate" hreflang="pt" href="https://joaovitorscr.com/pt"/>
 ```
 
 **Structured Data**: Rich snippets for Google search results
+
 - Person schema with job title, skills, social profiles
 - Organization affiliations
 - Knowledge graph optimization
@@ -299,6 +305,7 @@ Sitemap: https://joaovitorscr.com/sitemap.xml
 To update SEO metadata, edit your translation files:
 
 **`messages/en.json` or `messages/pt.json`:**
+
 ```json
 {
   "metadata": {

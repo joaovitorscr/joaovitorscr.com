@@ -77,14 +77,7 @@
             "title": "Testimony.io",
             "type": "Proyecto Personal",
             "description": "Plataforma para que empresas recopilen y muestren testimonios.",
-            "technologies": [
-              "Next.js",
-              "Tailwind",
-              "React",
-              "TypeScript",
-              "TRPC",
-              "PostgreSQL"
-            ],
+            "technologies": ["Next.js", "Tailwind", "React", "TypeScript", "TRPC", "PostgreSQL"],
             "liveUrl": "https://testimony.io.joaovitorscr.com",
             "liveUrlText": "Aplicación",
             "repositoryUrl": "https://github.com/joaovitorscr/testimony.io",
