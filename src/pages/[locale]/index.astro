@@ -11,7 +11,7 @@ const t = dictionaries[locale];
 const ext = { target: "_blank", rel: "noopener noreferrer" };
 const link = "text-link underline decoration-1 underline-offset-4 hover:decoration-2";
 const button =
-	"inline-flex h-11 items-center rounded-full bg-ink px-6 font-medium text-paper transition-colors duration-300 hover:bg-link";
+	"inline-flex h-11 items-center rounded-full bg-ink px-6 font-medium text-paper hover:bg-link press";
 const section = "grid gap-6 border-t border-rule pt-10 md:grid-cols-12";
 const label = "text-[15px] text-muted md:col-span-3";
 const body = "md:col-span-8 md:col-start-5";
@@ -59,8 +59,8 @@ const body = "md:col-span-8 md:col-start-5";
 			</div>
 
 			<div class="mt-14 grid gap-6 md:grid-cols-12">
-				<p class="font-display text-2xl font-medium tracking-tight md:col-span-4 md:text-3xl">{t.role}</p>
-				<div class="md:col-span-8 md:col-start-5">
+				<p data-reveal class="font-display text-2xl font-medium tracking-tight md:col-span-4 md:text-3xl">{t.role}</p>
+				<div data-reveal class="md:col-span-8 md:col-start-5">
 					<p class="max-w-[54ch] text-xl leading-relaxed text-muted">{t.hero.body}</p>
 					<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
 						<a href={site.links.calendar} {...ext} class={button}>{t.hero.cta}</a>
@@ -72,9 +72,9 @@ const body = "md:col-span-8 md:col-start-5";
 		</section>
 
 		<section id="work" class={`${section} mt-32`}>
-			<h2 class={label}>{t.sections.work}</h2>
+			<h2 data-reveal class={label}>{t.sections.work}</h2>
 			{projects.map((p, i) => (
-				<article class={body}>
+				<article data-reveal style="--d:80ms" class={body}>
 					<h3 class="font-display text-5xl font-semibold tracking-[-0.04em] md:text-7xl">
 						<a href={p.liveUrl} {...ext} class="transition-colors duration-300 hover:text-link">{p.title}</a>
 					</h3>
@@ -90,10 +90,10 @@ const body = "md:col-span-8 md:col-start-5";
 		</section>
 
 		<section id="experience" class={`${section} mt-24`}>
-			<h2 class={label}>{t.sections.experience}</h2>
+			<h2 data-reveal class={label}>{t.sections.experience}</h2>
 			<ol class={`${body} space-y-10`}>
-				{t.experience.map((job) => (
-					<li class="grid gap-2 sm:grid-cols-[9rem_1fr]">
+				{t.experience.map((job, i) => (
+					<li data-reveal style={`--d:${80 + i * 60}ms`} class="grid gap-2 sm:grid-cols-[9rem_1fr]">
 						<p class="tabular-nums text-muted sm:pt-1">{job.period}</p>
 						<div>
 							<h3 class="font-display text-2xl font-medium tracking-tight">{job.title}, {job.company}</h3>
@@ -105,20 +105,20 @@ const body = "md:col-span-8 md:col-start-5";
 		</section>
 
 		<section id="toolkit" class={`${section} mt-24`}>
-			<h2 class={label}>{t.sections.toolkit}</h2>
+			<h2 data-reveal class={label}>{t.sections.toolkit}</h2>
 			<dl class={`${body} grid gap-x-6 gap-y-2 sm:grid-cols-[9rem_1fr] sm:gap-y-6`}>
 				{([["frontend", skills.frontend], ["tools", skills.tools]] as const).map(([key, list]) => (
 					<>
-						<dt class="text-muted">{t.toolkit[key]}</dt>
-						<dd class="mb-4 font-display text-2xl leading-snug tracking-tight sm:mb-0">{list.join(", ")}</dd>
+						<dt data-reveal style="--d:80ms" class="text-muted">{t.toolkit[key]}</dt>
+						<dd data-reveal style="--d:140ms" class="mb-4 font-display text-2xl leading-snug tracking-tight sm:mb-0">{list.join(", ")}</dd>
 					</>
 				))}
 			</dl>
 		</section>
 
 		<section id="contact" class={`${section} mt-24 pb-32`}>
-			<h2 class={label}>{t.sections.contact}</h2>
-			<div class={body}>
+			<h2 data-reveal class={label}>{t.sections.contact}</h2>
+			<div data-reveal style="--d:80ms" class={body}>
 				<p class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]">{t.contact.title}</p>
 				<p class="mt-6 max-w-[54ch] text-xl leading-relaxed text-muted">{t.contact.body}</p>
 				<p class="mt-8"><a href={site.links.calendar} {...ext} class={button}>{t.contact.cta}</a></p>
@@ -132,6 +132,23 @@ const body = "md:col-span-8 md:col-start-5";
 	</footer>
 
 	<script>
+		// whatever is on screen at load reveals in document order, after the hero name
+		let initial = true;
+		const io = new IntersectionObserver(
+			(entries) => {
+				let n = 0;
+				for (const e of entries) if (e.isIntersecting) {
+					const el = e.target as HTMLElement;
+					if (initial) el.style.setProperty("--d", `${900 + n++ * 80}ms`);
+					el.dataset.in = "";
+					io.unobserve(el);
+				}
+				initial = false;
+			},
+			{ rootMargin: "0px 0px -10% 0px" },
+		);
+		document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
 		const bm = document.querySelector<HTMLElement>("[data-bm]")!;
 		const content = bm.querySelector<HTMLElement>("[data-content]")!;
 		const text = content.querySelector("p")!;

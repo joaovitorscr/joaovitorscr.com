@@ -53,3 +53,19 @@ body { background: var(--color-paper); color: var(--color-ink); }
   .bm[data-state="pre"] .bm-layer { opacity: 1; }
   .bm[data-state="pre"] .reveal > span { translate: none; }
 }
+
+/* scroll reveal: content rises in once, the first time it enters the viewport */
+.js [data-reveal] {
+  transition: opacity 0.7s var(--ease-out-expo), translate 0.7s var(--ease-out-expo);
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal]:not([data-in]) { opacity: 0; translate: 0 24px; }
+
+/* press feedback */
+.press { transition: background-color 0.3s ease, scale 0.16s var(--ease-out-expo); }
+.press:active { scale: 0.97; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not([data-in]) { translate: none; }
+  .press:active { scale: none; }
+}
