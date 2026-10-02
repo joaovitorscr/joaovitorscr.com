@@ -17,10 +17,30 @@ export const site = {
 
 export const skills = {
   frontend: ["React", "Next.js", "Astro", "Angular", "TypeScript", "JavaScript", "Tailwind CSS", "SASS", "tRPC"],
-  tools: ["Git", "Figma", "REST APIs", "Responsive Design", "Performance"],
+  backend: ["Node.js", "PostgreSQL", "Drizzle ORM", "Convex", "Clerk", "Vite", "Turborepo"],
+  tools: ["Git", "Figma", "Playwright", "GSAP", "LLM tooling", "REST APIs", "Responsive Design", "Performance"],
 };
 
-export const projects = [
+export const projects: {
+  title: string;
+  year: string;
+  technologies: string[];
+  liveUrl?: string;
+  repositoryUrl: string;
+}[] = [
+  {
+    title: "Auto-review",
+    year: "2026",
+    technologies: ["TypeScript", "React", "Vite", "GitHub API", "LLMs"],
+    repositoryUrl: "https://github.com/joaovitorscr/auto-review",
+  },
+  {
+    title: "Feed in Docs",
+    year: "2026",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind", "GSAP"],
+    liveUrl: "https://feed-in-docs.vercel.app",
+    repositoryUrl: "https://github.com/joaovitorscr/feed-in-docs",
+  },
   {
     title: "Testimony.io",
     year: "2025",
@@ -50,6 +70,16 @@ const en = {
   },
   projects: [
     {
+      type: "Work in progress",
+      description:
+        "A pull request reviewer that works with any model. Several focused agents look for runtime bugs, each finding is checked before it's posted, and comments stay short and tied to a file and line. Early days; I'm building it now.",
+    },
+    {
+      type: "Personal project",
+      description:
+        "Paste a documentation URL and get an llms.txt index you can copy. It reads the site's sitemap, follows links within the docs section and prefers each page's Markdown version when one exists.",
+    },
+    {
       type: "Personal project",
       description:
         "A tool for companies to collect customer testimonials, pick the best ones and embed them on their own site.",
@@ -73,13 +103,12 @@ const en = {
         "Shipped frontend features alongside the backend team while learning the craft of production web development.",
     },
   ],
-  toolkit: { frontend: "Frontend", tools: "Tools & practice" },
+  toolkit: { frontend: "Frontend", backend: "Backend & data", tools: "Tools & practice" },
   contact: {
     title: "Have something in mind?",
     body: "I'm always up for a conversation about products, interfaces or a project that needs a careful frontend.",
     cta: "Schedule a meeting",
   },
-  footer: "Built with Astro.",
 };
 
 type Dict = typeof en;
@@ -104,6 +133,16 @@ const pt: Dict = {
   },
   projects: [
     {
+      type: "Em andamento",
+      description:
+        "Um revisor de pull requests que funciona com qualquer modelo. Vários agentes procuram bugs de execução, cada achado é verificado antes de ser publicado e os comentários ficam curtos e ligados a um arquivo e linha. Ainda no começo; estou construindo agora.",
+    },
+    {
+      type: "Projeto pessoal",
+      description:
+        "Cole a URL de uma documentação e receba um índice llms.txt pronto para copiar. Ele lê o sitemap do site, segue os links dentro da documentação e usa a versão em Markdown de cada página quando existe.",
+    },
+    {
       type: "Projeto pessoal",
       description:
         "Uma ferramenta para empresas coletarem depoimentos de clientes, escolherem os melhores e exibirem no próprio site.",
@@ -127,13 +166,12 @@ const pt: Dict = {
         "Entreguei funcionalidades de frontend junto ao time de backend enquanto aprendia o ofício do desenvolvimento web em produção.",
     },
   ],
-  toolkit: { frontend: "Frontend", tools: "Ferramentas & prática" },
+  toolkit: { frontend: "Frontend", backend: "Backend & dados", tools: "Ferramentas & prática" },
   contact: {
     title: "Tem algo em mente?",
     body: "Estou sempre aberto a conversar sobre produtos, interfaces ou um projeto que precise de um frontend cuidadoso.",
     cta: "Agendar reunião",
   },
-  footer: "Feito com Astro.",
 };
 
 const es: Dict = {
@@ -155,6 +193,16 @@ const es: Dict = {
     contact: "Contacto",
   },
   projects: [
+    {
+      type: "En desarrollo",
+      description:
+        "Un revisor de pull requests que funciona con cualquier modelo. Varios agentes buscan errores de ejecución, cada hallazgo se verifica antes de publicarse y los comentarios son breves y van ligados a un archivo y una línea. Está en sus inicios; lo estoy construyendo ahora.",
+    },
+    {
+      type: "Proyecto personal",
+      description:
+        "Pega la URL de una documentación y obtén un índice llms.txt listo para copiar. Lee el sitemap del sitio, sigue los enlaces dentro de la documentación y usa la versión en Markdown de cada página cuando existe.",
+    },
     {
       type: "Proyecto personal",
       description:
@@ -179,13 +227,12 @@ const es: Dict = {
         "Entregué funcionalidades de frontend junto al equipo de backend mientras aprendía el oficio del desarrollo web en producción.",
     },
   ],
-  toolkit: { frontend: "Frontend", tools: "Herramientas y práctica" },
+  toolkit: { frontend: "Frontend", backend: "Backend y datos", tools: "Herramientas y práctica" },
   contact: {
     title: "¿Tienes algo en mente?",
     body: "Siempre estoy dispuesto a conversar sobre productos, interfaces o un proyecto que necesite un frontend cuidadoso.",
     cta: "Agendar reunión",
   },
-  footer: "Hecho con Astro.",
 };
 
 export const dictionaries: Record<Locale, Dict> = { en, pt, es };
