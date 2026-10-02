@@ -13,8 +13,8 @@
   --color-bm-padding: #d4dfa8;
   --color-bm-content: #b8d5de;
 
-  --font-sans: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-funnel-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-funnel-display), ui-sans-serif, system-ui, sans-serif;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -32,7 +32,7 @@ body { background: var(--color-paper); color: var(--color-ink); }
 .bm-tag {
   position: absolute; left: 8px; right: 8px; height: 14px;
   display: flex; justify-content: space-between;
-  font-size: 12px; line-height: 14px; color: rgb(20 22 28 / 0.62);
+  font-size: 12px; line-height: 14px; color: rgb(20 22 28 / 0.72);
   font-variant-numeric: tabular-nums; white-space: nowrap;
 }
 .bm-tag > :last-child { position: absolute; left: 50%; translate: -50% 0; }
