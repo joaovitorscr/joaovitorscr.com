@@ -58,7 +58,7 @@ A modern, minimal portfolio website built with Next.js 15, featuring multilingua
 ### Prerequisites
 
 - Node.js 18+
-- npm, yarn, pnpm, or bun
+- pnpm
 
 ### Installation
 
@@ -72,25 +72,13 @@ cd joaovitorscr.com
 2. Install dependencies:
 
 ```bash
-npm install
-# or
-yarn install
-# or
 pnpm install
-# or
-bun install
 ```
 
 3. Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.

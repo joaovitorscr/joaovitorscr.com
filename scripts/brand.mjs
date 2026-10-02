@@ -1,6 +1,6 @@
 // Regenerates public/ brand assets (OG images, app icons, favicon.ico) by
 // screenshotting HTML in headless Chrome, so the real Funnel fonts are used.
-// Usage: bun scripts/brand.mjs
+// Usage: pnpm brand
 import { execFileSync } from "node:child_process";
 import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -26,19 +26,26 @@ const fonts = `<link href="https://fonts.googleapis.com/css2?family=Funnel+Displ
 
 function shoot(name, html, w, h, scale = 1) {
   const file = join(tmp, `${name}.html`);
-  writeFileSync(file, `<!doctype html><meta charset="utf-8">${fonts}<style>*{margin:0;box-sizing:border-box}html,body{width:${w}px;height:${h}px;overflow:hidden}</style>${html}`);
+  writeFileSync(
+    file,
+    `<!doctype html><meta charset="utf-8">${fonts}<style>*{margin:0;box-sizing:border-box}html,body{width:${w}px;height:${h}px;overflow:hidden}</style>${html}`,
+  );
   const out = join(pub, `${name}.png`);
-  execFileSync(CHROME, [
-    "--headless=new",
-    "--disable-gpu",
-    "--hide-scrollbars",
-    "--default-background-color=00000000",
-    `--force-device-scale-factor=${scale}`,
-    "--virtual-time-budget=5000",
-    `--window-size=${w},${h}`,
-    `--screenshot=${out}`,
-    `file://${file}`,
-  ], { stdio: "ignore" });
+  execFileSync(
+    CHROME,
+    [
+      "--headless=new",
+      "--disable-gpu",
+      "--hide-scrollbars",
+      "--default-background-color=00000000",
+      `--force-device-scale-factor=${scale}`,
+      "--virtual-time-budget=5000",
+      `--window-size=${w},${h}`,
+      `--screenshot=${out}`,
+      `file://${file}`,
+    ],
+    { stdio: "ignore" },
+  );
   return out;
 }
 
@@ -55,7 +62,8 @@ function mark(size, { radius = 0.22, pad = 0.1, bleed = false } = {}) {
   </div>`;
 }
 
-const icon = (name, size, opts) => shoot(name, `<body style="background:transparent">${mark(size, opts)}`, size, size);
+const icon = (name, size, opts) =>
+  shoot(name, `<body style="background:transparent">${mark(size, opts)}`, size, size);
 
 icon("icon-512", 512);
 icon("icon-192", 192);
@@ -84,16 +92,38 @@ execFileSync("rm", [ico32]);
 // OG image: a 420px box the name overflows, corrected in red pen, with a
 // resolved review thread. One per locale; rendered at 2x (2400x1260).
 const og = {
-  en: { team: "Product", ask: "This header has been broken for weeks 😅 can you take a look?", done: "Done.", shipped: "shipped", resolved: "Resolved", note: "I fix these for a living." },
-  pt: { team: "Produto", ask: "Esse header tá quebrado há semanas 😅 consegue dar uma olhada?", done: "Pronto.", shipped: "no ar", resolved: "Resolvido", note: "Eu vivo de consertar isso." },
-  es: { team: "Producto", ask: "Este header lleva semanas roto 😅 ¿puedes echarle un vistazo?", done: "Listo.", shipped: "publicado", resolved: "Resuelto", note: "Vivo de arreglar esto." },
+  en: {
+    team: "Product",
+    ask: "This header has been broken for weeks 😅 can you take a look?",
+    done: "Done.",
+    shipped: "shipped",
+    resolved: "Resolved",
+    note: "I fix these for a living.",
+  },
+  pt: {
+    team: "Produto",
+    ask: "Esse header tá quebrado há semanas 😅 consegue dar uma olhada?",
+    done: "Pronto.",
+    shipped: "no ar",
+    resolved: "Resolvido",
+    note: "Eu vivo de consertar isso.",
+  },
+  es: {
+    team: "Producto",
+    ask: "Este header lleva semanas roto 😅 ¿puedes echarle un vistazo?",
+    done: "Listo.",
+    shipped: "publicado",
+    resolved: "Resuelto",
+    note: "Vivo de arreglar esto.",
+  },
 };
 const p = { ink: "#16171b", red: "#d6372b", paper: "#f4f1ea", soft: "#5d5a52" };
 const pen = (d, w = 3.2) =>
   `<path d="${d}" fill="none" stroke="${p.red}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" opacity=".92"/>`;
 const avatar = (bg, letter) =>
   `<span style="flex:none;width:30px;height:30px;border-radius:50%;background:${bg};color:#fff;display:grid;place-items:center;font:600 14px Inter">${letter}</span>`;
-const code = (text) => `<code style="font:13.5px 'IBM Plex Mono';background:#f1f1f1;padding:1px 5px;border-radius:4px">${text}</code>`;
+const code = (text) =>
+  `<code style="font:13.5px 'IBM Plex Mono';background:#f1f1f1;padding:1px 5px;border-radius:4px">${text}</code>`;
 
 for (const locale of locales) {
   const t = dictionaries[locale];

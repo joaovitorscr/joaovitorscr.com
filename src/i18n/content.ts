@@ -16,9 +16,28 @@ export const site = {
 };
 
 export const skills = {
-  frontend: ["React", "Next.js", "Astro", "Angular", "TypeScript", "JavaScript", "Tailwind CSS", "SASS", "tRPC"],
+  frontend: [
+    "React",
+    "Next.js",
+    "Astro",
+    "Angular",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "SASS",
+    "tRPC",
+  ],
   backend: ["Node.js", "PostgreSQL", "Drizzle ORM", "Convex", "Clerk", "Vite", "Turborepo"],
-  tools: ["Git", "Figma", "Playwright", "GSAP", "LLM tooling", "REST APIs", "Responsive Design", "Performance"],
+  tools: [
+    "Git",
+    "Figma",
+    "Playwright",
+    "GSAP",
+    "LLM tooling",
+    "REST APIs",
+    "Responsive Design",
+    "Performance",
+  ],
 };
 
 export const projects: {
@@ -180,7 +199,12 @@ const es: Dict = {
     description:
       "João Vitor es desarrollador frontend y crea interfaces web rápidas y cuidadas con React, Next.js y TypeScript.",
   },
-  nav: { work: "Proyectos", experience: "Experiencia", toolkit: "Herramientas", contact: "Contacto" },
+  nav: {
+    work: "Proyectos",
+    experience: "Experiencia",
+    toolkit: "Herramientas",
+    contact: "Contacto",
+  },
   role: "Desarrollador Frontend",
   hero: {
     body: "Construyo interfaces web rápidas y accesibles con React, TypeScript y CSS moderno. Me fijo en el espaciado, el ritmo de las animaciones y los estados que solo se notan cuando fallan.",
