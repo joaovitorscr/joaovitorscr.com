@@ -10,7 +10,8 @@
     "lint": "oxlint --report-unused-disable-directives",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "brand": "bun scripts/brand.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
