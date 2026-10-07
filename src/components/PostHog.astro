@@ -7,32 +7,39 @@ const key = import.meta.env.PUBLIC_POSTHOG_KEY;
 	<script>
 		import posthog from "posthog-js";
 
-		posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
-			// Proxied through /ingest (see vercel.json) so ad blockers don't drop events.
-			api_host: "/ingest",
-			ui_host: import.meta.env.PUBLIC_POSTHOG_UI_HOST ?? "https://us.posthog.com",
-			defaults: "2025-05-24",
-			person_profiles: "identified_only",
-		});
+		// Started once the page is idle after load, so analytics stays off the critical rendering path.
+		function start() {
+			posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
+				// Proxied through /ingest (see vercel.json) so ad blockers don't drop events.
+				api_host: "/ingest",
+				ui_host: import.meta.env.PUBLIC_POSTHOG_UI_HOST ?? "https://us.posthog.com",
+				defaults: "2025-05-24",
+				person_profiles: "identified_only",
+			});
 
-		// Links opt in with data-track="<event>"; their other data-* attributes become properties.
-		document.addEventListener("click", (e) => {
-			const el = (e.target as Element).closest<HTMLElement>("[data-track]");
-			if (!el) return;
-			const { track, ...props } = el.dataset;
-			posthog.capture(track!, props);
-		});
+			// Links opt in with data-track="<event>"; their other data-* attributes become properties.
+			document.addEventListener("click", (e) => {
+				const el = (e.target as Element).closest<HTMLElement>("[data-track]");
+				if (!el) return;
+				const { track, ...props } = el.dataset;
+				posthog.capture(track!, props);
+			});
 
-		// One section_viewed per section per page load.
-		const seen = new IntersectionObserver(
-			(entries) => {
-				for (const e of entries) if (e.isIntersecting) {
-					posthog.capture("section_viewed", { section: e.target.id });
-					seen.unobserve(e.target);
-				}
-			},
-			{ threshold: 0.3 },
-		);
-		document.querySelectorAll("main section[id]").forEach((el) => seen.observe(el));
+			// One section_viewed per section per page load.
+			const seen = new IntersectionObserver(
+				(entries) => {
+					for (const e of entries) if (e.isIntersecting) {
+						posthog.capture("section_viewed", { section: e.target.id });
+						seen.unobserve(e.target);
+					}
+				},
+				{ threshold: 0.3 },
+			);
+			document.querySelectorAll("main section[id]").forEach((el) => seen.observe(el));
+		}
+
+		const idle = () => ("requestIdleCallback" in window ? requestIdleCallback(start) : setTimeout(start, 1));
+		if (document.readyState === "complete") idle();
+		else addEventListener("load", idle, { once: true });
 	</script>
 )}

@@ -1,6 +1,12 @@
+<p align="center">
+  <a href="https://www.joaovitorscr.com">
+    <img src="docs/screenshots/hero.png" alt="The name João Vitor inside a DevTools-style box-model overlay showing margin, border and padding" width="100%" />
+  </a>
+</p>
+
 # joaovitorscr.com
 
-Personal site of João Vitor, frontend developer. A single static page in three languages, built with Astro and Tailwind, deployed on Vercel.
+Personal site of João Vitor, frontend developer. A single static page in three languages (English, Portuguese and Spanish), built with Astro and Tailwind and deployed on Vercel.
 
 ## Stack
 
@@ -9,6 +15,36 @@ Personal site of João Vitor, frontend developer. A single static page in three 
 - TypeScript, checked with `tsc`
 - [oxlint](https://oxc.rs) and [oxfmt](https://oxc.rs) for linting and formatting
 - pnpm, Node 22+
+
+## Responsive layout
+
+### Desktop
+
+<p align="center">
+  <img src="docs/screenshots/desktop.png" alt="The full first screen on a desktop browser: navigation, box-model hero, role and intro with contact links" width="100%" />
+</p>
+
+### Phone
+
+<p align="center">
+  <img src="docs/screenshots/mobile.png" alt="The site on a phone, with the box-model hero scaled down and the intro below it" width="320" />
+</p>
+
+## Performance
+
+Lighthouse on a production build of `/en`, October 2026:
+
+|                          | Mobile | Desktop |
+| ------------------------ | -----: | ------: |
+| Performance              |    100 |     100 |
+| Accessibility            |    100 |     100 |
+| Best Practices           |    100 |     100 |
+| SEO                      |    100 |     100 |
+| Largest Contentful Paint |  1.4 s |   0.3 s |
+| Total Blocking Time      |   0 ms |    0 ms |
+| Cumulative Layout Shift  |      0 |   0.002 |
+
+The page has no images and no third-party requests. It transfers 288 KB in total: 6 KB of HTML, 5 KB of CSS, 53 KB of self-hosted fonts and 217 KB of JavaScript, almost all of it the PostHog analytics bundle, which starts only after the page has loaded.
 
 ## Structure
 
@@ -24,32 +60,5 @@ src/
   styles/global.css      theme tokens and the hero box-model animation
 public/                  favicons, app icons, OG images, manifest, robots
 scripts/brand.mjs        regenerates the icons and OG images from HTML
+docs/screenshots/        README screenshots
 ```
-
-## Development
-
-```bash
-pnpm install
-pnpm dev          # http://localhost:4173
-pnpm build
-pnpm preview
-pnpm typecheck
-pnpm lint
-pnpm fmt
-```
-
-## Editing content
-
-Everything shown on the page lives in `src/i18n/content.ts`. The English dictionary defines the shape, and the Portuguese and Spanish ones are typed against it, so a missing translation fails typecheck.
-
-To add a locale, append it to `locales`, add a dictionary, and add an entry to `ogLocales` in the layout. Then run `pnpm brand` to render its OG image.
-
-## Brand assets
-
-`pnpm brand` screenshots small HTML documents in headless Chrome to produce the favicon, app icons and the OG image for each locale. It expects Google Chrome at the default macOS path, or set `CHROME` to another binary.
-
-## Deployment
-
-Vercel builds the `astro` preset from `vercel.json`, which also sends `/` to `/pt` or `/es` based on the `Accept-Language` header, falling back to `/en`, and sets security and cache headers. On any other static host the output in `dist/` still works: the root page redirects client-side using the browser language.
-
-CI on GitHub runs typecheck, lint, format check and build on every pull request.

@@ -158,14 +158,15 @@ const mailto = site.email ? `mailto:${site.email}` : null;
 	</footer>
 
 	<script>
-		// whatever is on screen at load reveals in document order, after the hero name
+		// whatever is on screen at load reveals in document order, starting right away so the
+		// intro paints early (it's the LCP element)
 		let initial = true;
 		const io = new IntersectionObserver(
 			(entries) => {
 				let n = 0;
 				for (const e of entries) if (e.isIntersecting) {
 					const el = e.target as HTMLElement;
-					if (initial) el.style.setProperty("--d", `${900 + n++ * 80}ms`);
+					if (initial) el.style.setProperty("--d", `${n++ * 80}ms`);
 					el.dataset.in = "";
 					io.unobserve(el);
 				}
