@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
+import PostHog from "../components/PostHog.astro";
 import { dictionaries, locales, site, type Locale } from "../i18n/content";
 
 interface Props {
@@ -79,6 +80,7 @@ const structuredData = {
 		<Font cssVariable="--font-funnel-display" preload />
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 		<meta name="generator" content={Astro.generator} />
+		<PostHog />
 	</head>
 	<body class="font-sans antialiased">
 		<slot />

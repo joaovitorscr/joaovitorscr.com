@@ -1,0 +1,18 @@
+---
+// Renders nothing unless PUBLIC_POSTHOG_KEY is set, so local dev and previews stay untracked.
+const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+---
+
+{key && (
+	<script>
+		import posthog from "posthog-js";
+
+		posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
+			// Proxied through /ingest (see vercel.json) so ad blockers don't drop events.
+			api_host: "/ingest",
+			ui_host: import.meta.env.PUBLIC_POSTHOG_UI_HOST ?? "https://us.posthog.com",
+			defaults: "2025-05-24",
+			person_profiles: "identified_only",
+		});
+	</script>
+)}
