@@ -12,14 +12,32 @@ const ext = { target: "_blank", rel: "noopener noreferrer" };
 const link = "text-link underline decoration-1 underline-offset-4 hover:decoration-2";
 const button =
 	"inline-flex h-11 items-center rounded-full bg-ink px-6 font-medium text-paper hover:bg-link press";
-const section = "grid gap-6 border-t border-rule pt-10 md:grid-cols-12";
+const section = "grid scroll-mt-6 gap-6 border-t border-rule pt-10 md:grid-cols-12";
 const label = "text-[15px] text-muted md:col-span-3";
 const body = "md:col-span-8 md:col-start-5";
+const navItems = [
+	["work", t.nav.work],
+	["experience", t.nav.experience],
+	["toolkit", t.nav.toolkit],
+	["contact", t.nav.contact],
+] as const;
+const toolkit = [
+	["frontend", skills.frontend],
+	["backend", skills.backend],
+	["tools", skills.tools],
+	["practice", skills.practice],
+] as const;
+const mailto = site.email ? `mailto:${site.email}` : null;
 ---
 
 <Layout locale={locale}>
-	<header class="mx-auto flex max-w-6xl items-center justify-between px-5 py-6 text-[15px] md:px-8">
+	<header class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-6 text-[15px] md:px-8">
 		<a href={`/${locale}`} class="font-display font-semibold tracking-tight">{site.handle}</a>
+		<nav aria-label="Sections" class="hidden gap-6 sm:flex">
+			{navItems.map(([id, text]) => (
+				<a href={`#${id}`} class="text-muted transition-colors hover:text-ink">{text}</a>
+			))}
+		</nav>
 		<nav aria-label="Language" class="flex gap-4">
 			{locales.map((l) => (
 				<a
@@ -66,6 +84,7 @@ const body = "md:col-span-8 md:col-start-5";
 						<a href={site.links.calendar} {...ext} class={button}>{t.hero.cta}</a>
 						<a href={site.links.github} {...ext} class={link}>GitHub</a>
 						<a href={site.links.linkedin} {...ext} class={link}>LinkedIn</a>
+						{mailto && <a href={mailto} class={link}>{t.email}</a>}
 					</p>
 				</div>
 			</div>
@@ -107,7 +126,7 @@ const body = "md:col-span-8 md:col-start-5";
 		<section id="toolkit" class={`${section} mt-24`}>
 			<h2 data-reveal class={label}>{t.sections.toolkit}</h2>
 			<dl class={`${body} grid gap-x-6 gap-y-2 sm:grid-cols-[9rem_1fr] sm:gap-y-6`}>
-				{([["frontend", skills.frontend], ["backend", skills.backend], ["tools", skills.tools]] as const).map(([key, list]) => (
+				{toolkit.map(([key, list]) => (
 					<>
 						<dt data-reveal style="--d:80ms" class="text-muted">{t.toolkit[key]}</dt>
 						<dd data-reveal style="--d:140ms" class="mb-4 font-display text-2xl leading-snug tracking-tight sm:mb-0">{list.join(", ")}</dd>
@@ -121,13 +140,21 @@ const body = "md:col-span-8 md:col-start-5";
 			<div data-reveal style="--d:80ms" class={body}>
 				<p class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]">{t.contact.title}</p>
 				<p class="mt-6 max-w-[54ch] text-xl leading-relaxed text-muted">{t.contact.body}</p>
-				<p class="mt-8"><a href={site.links.calendar} {...ext} class={button}>{t.contact.cta}</a></p>
+				<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+					<a href={site.links.calendar} {...ext} class={button}>{t.contact.cta}</a>
+					{mailto && <a href={mailto} class={link}>{site.email}</a>}
+				</p>
 			</div>
 		</section>
 	</main>
 
 	<footer class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 border-t border-rule px-5 py-6 text-sm text-muted md:px-8">
 		<span>© {new Date().getFullYear()} {site.name}</span>
+		<span class="flex gap-5">
+			<a href={site.links.github} {...ext} class="transition-colors hover:text-ink">GitHub</a>
+			<a href={site.links.linkedin} {...ext} class="transition-colors hover:text-ink">LinkedIn</a>
+			{mailto && <a href={mailto} class="transition-colors hover:text-ink">{t.email}</a>}
+		</span>
 	</footer>
 
 	<script>
@@ -257,15 +284,19 @@ const body = "md:col-span-8 md:col-start-5";
 				apply(1400);
 			});
 
-			// cycle layouts while the hero is on screen and the tab is visible
+			// cycle layouts while the hero is on screen and the tab is visible,
+			// then rest on the first layout after two full rounds
 			let timer = 0;
 			let visible = true;
+			let steps = 0;
 			const run = () => {
 				clearInterval(timer);
-				if (visible && !document.hidden)
+				if (visible && !document.hidden && steps < states.length * 2)
 					timer = setInterval(() => {
 						i = (i + 1) % states.length;
+						steps++;
 						apply(1200);
+						if (steps >= states.length * 2) clearInterval(timer);
 					}, 3600);
 			};
 			new IntersectionObserver(([e]) => {

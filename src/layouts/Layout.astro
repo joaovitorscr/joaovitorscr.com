@@ -24,6 +24,7 @@ const structuredData = {
 	image: site.avatar,
 	alternateName: site.handle,
 	sameAs: [site.links.github, site.links.linkedin],
+	...(site.email ? { email: `mailto:${site.email}` } : {}),
 	knowsAbout: ["React", "Next.js", "Astro", "TypeScript", "Tailwind CSS", "Frontend Development"],
 	worksFor: { "@type": "Organization", name: "Anexs Tecnologia" },
 };

@@ -7,7 +7,7 @@ export const site = {
   name: "João Vitor",
   handle: "joaovitorscr",
   avatar: "https://github.com/joaovitorscr.png",
-  email: null as string | null,
+  email: "joaovitorscr03@gmail.com",
   links: {
     github: "https://www.github.com/joaovitorscr",
     linkedin: "https://www.linkedin.com/in/joaovitorscr/",
@@ -25,19 +25,11 @@ export const skills = {
     "JavaScript",
     "Tailwind CSS",
     "SASS",
-    "tRPC",
-  ],
-  backend: ["Node.js", "PostgreSQL", "Drizzle ORM", "Convex", "Clerk", "Vite", "Turborepo"],
-  tools: [
-    "Git",
-    "Figma",
-    "Playwright",
     "GSAP",
-    "LLM tooling",
-    "REST APIs",
-    "Responsive Design",
-    "Performance",
   ],
+  backend: ["Node.js", "tRPC", "REST APIs", "PostgreSQL", "Drizzle ORM", "Convex", "Clerk"],
+  tools: ["Git", "Vite", "Turborepo", "Playwright", "Figma", "LLM tooling"],
+  practice: ["Accessibility", "Performance", "Responsive design", "Motion design"],
 };
 
 export const projects: {
@@ -106,6 +98,8 @@ const en = {
   ],
   live: "Live site",
   repo: "Source",
+  email: "Email",
+  notFound: { title: "This page doesn't exist.", home: "Home" },
   experience: [
     {
       title: "Frontend Developer",
@@ -122,7 +116,12 @@ const en = {
         "Shipped frontend features alongside the backend team while learning the craft of production web development.",
     },
   ],
-  toolkit: { frontend: "Frontend", backend: "Backend & data", tools: "Tools & practice" },
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend & data",
+    tools: "Tooling",
+    practice: "Practice",
+  },
   contact: {
     title: "Have something in mind?",
     body: "I'm always up for a conversation about products, interfaces or a project that needs a careful frontend.",
@@ -169,6 +168,8 @@ const pt: Dict = {
   ],
   live: "Ver site",
   repo: "Código",
+  email: "E-mail",
+  notFound: { title: "Essa página não existe.", home: "Início" },
   experience: [
     {
       title: "Desenvolvedor Frontend",
@@ -185,7 +186,12 @@ const pt: Dict = {
         "Entreguei funcionalidades de frontend junto ao time de backend enquanto aprendia o ofício do desenvolvimento web em produção.",
     },
   ],
-  toolkit: { frontend: "Frontend", backend: "Backend & dados", tools: "Ferramentas & prática" },
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend & dados",
+    tools: "Ferramentas",
+    practice: "Prática",
+  },
   contact: {
     title: "Tem algo em mente?",
     body: "Estou sempre aberto a conversar sobre produtos, interfaces ou um projeto que precise de um frontend cuidadoso.",
@@ -235,6 +241,8 @@ const es: Dict = {
   ],
   live: "Ver sitio",
   repo: "Código",
+  email: "Correo",
+  notFound: { title: "Esta página no existe.", home: "Inicio" },
   experience: [
     {
       title: "Desarrollador Frontend",
@@ -251,7 +259,12 @@ const es: Dict = {
         "Entregué funcionalidades de frontend junto al equipo de backend mientras aprendía el oficio del desarrollo web en producción.",
     },
   ],
-  toolkit: { frontend: "Frontend", backend: "Backend y datos", tools: "Herramientas y práctica" },
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend y datos",
+    tools: "Herramientas",
+    practice: "Práctica",
+  },
   contact: {
     title: "¿Tienes algo en mente?",
     body: "Siempre estoy dispuesto a conversar sobre productos, interfaces o un proyecto que necesite un frontend cuidadoso.",

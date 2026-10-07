@@ -1,16 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { site } from "../i18n/content";
+import { defaultLocale, dictionaries, locales, site } from "../i18n/content";
+
+const t = dictionaries[defaultLocale];
+const link = "text-link underline decoration-1 underline-offset-4 hover:decoration-2";
 ---
 
-<Layout locale="en" title={`Page not found — ${site.name}`} noindex>
+<Layout locale={defaultLocale} title={`404 — ${site.name}`} noindex>
 	<main class="mx-auto flex min-h-svh max-w-6xl flex-col justify-center px-5 md:px-8">
 		<p class="text-[15px] text-muted">404</p>
-		<h1 class="mt-4 font-display text-5xl font-semibold tracking-[-0.04em] md:text-7xl">This page doesn't exist.</h1>
+		<h1 data-title class="mt-4 font-display text-5xl font-semibold tracking-[-0.04em] md:text-7xl">{t.notFound.title}</h1>
 		<p class="mt-8 flex gap-6 text-[15px]">
-			<a href="/en" class="text-link underline decoration-1 underline-offset-4 hover:decoration-2">Home</a>
-			<a href="/pt" class="text-link underline decoration-1 underline-offset-4 hover:decoration-2">Início</a>
-			<a href="/es" class="text-link underline decoration-1 underline-offset-4 hover:decoration-2">Inicio</a>
+			{locales.map((l) => (
+				<a href={`/${l}`} hreflang={l} lang={l} class={link}>{dictionaries[l].notFound.home}</a>
+			))}
 		</p>
 	</main>
 </Layout>
+
+<script>
+	import { dictionaries, locales, type Locale } from "../i18n/content";
+	// a /pt/... or /es/... miss gets its own language
+	const l = location.pathname.split("/")[1] as Locale;
+	if (locales.includes(l) && l !== "en") {
+		document.documentElement.lang = l;
+		document.querySelector("[data-title]")!.textContent = dictionaries[l].notFound.title;
+	}
+</script>

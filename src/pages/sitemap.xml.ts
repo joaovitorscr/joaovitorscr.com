@@ -1,7 +1,15 @@
+import { execSync } from "node:child_process";
 import type { APIRoute } from "astro";
 import { locales, site } from "../i18n/content";
 
-const lastmod = new Date().toISOString().slice(0, 10);
+// last change to anything the page is built from, not the build date
+const lastmod = (() => {
+  try {
+    return execSync("git log -1 --format=%cs -- src public", { encoding: "utf8" }).trim();
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+})();
 
 export const GET: APIRoute = () => {
   const alternates = [

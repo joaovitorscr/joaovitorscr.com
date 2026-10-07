@@ -50,4 +50,6 @@ To add a locale, append it to `locales`, add a dictionary, and add an entry to `
 
 ## Deployment
 
-Vercel builds the `astro` preset from `vercel.json`. Any static host works: the output is plain HTML in `dist/`.
+Vercel builds the `astro` preset from `vercel.json`, which also sends `/` to `/pt` or `/es` based on the `Accept-Language` header, falling back to `/en`, and sets security and cache headers. On any other static host the output in `dist/` still works: the root page redirects client-side using the browser language.
+
+CI on GitHub runs typecheck, lint, format check and build on every pull request.
