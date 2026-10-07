@@ -14,10 +14,8 @@
     "brand": "node scripts/brand.mjs"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.10",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.5",
-    "cn": "^0.4.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
@@ -25,6 +23,7 @@
     "@types/node": "^22.20.4",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.86.0",
+    "sharp": "^0.35.5",
     "typescript": "^7.0.2"
   },
   "engines": {

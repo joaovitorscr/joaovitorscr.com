@@ -2,9 +2,10 @@
 // screenshotting HTML in headless Chrome, so the real Funnel fonts are used.
 // Usage: pnpm brand
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import sharp from "sharp";
 import { dictionaries, locales } from "../src/i18n/content.ts";
 
 const CHROME = process.env.CHROME ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -125,10 +126,11 @@ const avatar = (bg, letter) =>
 const code = (text) =>
   `<code style="font:13.5px 'IBM Plex Mono';background:#f1f1f1;padding:1px 5px;border-radius:4px">${text}</code>`;
 
+// The grain overlay makes PNG output ~2.7 MB, so OG images are re-encoded as JPEG.
 for (const locale of locales) {
   const t = dictionaries[locale];
   const o = og[locale];
-  shoot(
+  const png = shoot(
     `og-${locale}`,
     `<style>body{background:${p.paper};color:${p.ink};font-family:'Funnel Sans'}.a{position:absolute}.hand{font-family:Kalam;font-weight:700;color:${p.red};white-space:nowrap}
       .name{width:420px;white-space:nowrap}</style>
@@ -163,6 +165,10 @@ for (const locale of locales) {
     630,
     2,
   );
+  await sharp(png)
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile(join(pub, `og-${locale}.jpg`));
+  rmSync(png);
 }
 
 console.log("brand assets written to public/");

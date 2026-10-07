@@ -12,7 +12,7 @@ interface Props {
 const { locale, title, noindex = false } = Astro.props;
 const t = dictionaries[locale];
 const canonical = `${site.url}/${locale}`;
-const ogImage = `${site.url}/og-${locale}.png`;
+const ogImage = `${site.url}/og-${locale}.jpg`;
 const ogLocales = { en: "en_US", pt: "pt_BR", es: "es_ES" };
 
 const structuredData = {
@@ -59,7 +59,7 @@ const structuredData = {
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:image:width" content="2400" />
 		<meta property="og:image:height" content="1260" />
-		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:type" content="image/jpeg" />
 		<meta property="og:image:alt" content={`${site.name} — ${t.role}`} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:creator" content="@joaovitorscr" />
