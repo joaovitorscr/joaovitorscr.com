@@ -14,5 +14,25 @@ const key = import.meta.env.PUBLIC_POSTHOG_KEY;
 			defaults: "2025-05-24",
 			person_profiles: "identified_only",
 		});
+
+		// Links opt in with data-track="<event>"; their other data-* attributes become properties.
+		document.addEventListener("click", (e) => {
+			const el = (e.target as Element).closest<HTMLElement>("[data-track]");
+			if (!el) return;
+			const { track, ...props } = el.dataset;
+			posthog.capture(track!, props);
+		});
+
+		// One section_viewed per section per page load.
+		const seen = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) if (e.isIntersecting) {
+					posthog.capture("section_viewed", { section: e.target.id });
+					seen.unobserve(e.target);
+				}
+			},
+			{ threshold: 0.3 },
+		);
+		document.querySelectorAll("main section[id]").forEach((el) => seen.observe(el));
 	</script>
 )}

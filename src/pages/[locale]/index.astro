@@ -81,10 +81,10 @@ const mailto = site.email ? `mailto:${site.email}` : null;
 				<div data-reveal class="md:col-span-8 md:col-start-5">
 					<p class="max-w-[54ch] text-xl leading-relaxed text-muted">{t.hero.body}</p>
 					<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
-						<a href={site.links.calendar} {...ext} class={button}>{t.hero.cta}</a>
-						<a href={site.links.github} {...ext} class={link}>GitHub</a>
-						<a href={site.links.linkedin} {...ext} class={link}>LinkedIn</a>
-						{mailto && <a href={mailto} class={link}>{t.email}</a>}
+						<a href={site.links.calendar} {...ext} class={button} data-track="booking_clicked" data-location="hero">{t.hero.cta}</a>
+						<a href={site.links.github} {...ext} class={link} data-track="social_clicked" data-platform="github" data-location="hero">GitHub</a>
+						<a href={site.links.linkedin} {...ext} class={link} data-track="social_clicked" data-platform="linkedin" data-location="hero">LinkedIn</a>
+						{mailto && <a href={mailto} class={link} data-track="email_clicked" data-location="hero">{t.email}</a>}
 					</p>
 				</div>
 			</div>
@@ -95,14 +95,14 @@ const mailto = site.email ? `mailto:${site.email}` : null;
 			{projects.map((p, i) => (
 				<article data-reveal style="--d:80ms" class={body}>
 					<h3 class="font-display text-5xl font-semibold tracking-[-0.04em] md:text-7xl">
-						<a href={p.liveUrl ?? p.repositoryUrl} {...ext} class="transition-colors duration-300 hover:text-link">{p.title}</a>
+						<a href={p.liveUrl ?? p.repositoryUrl} {...ext} class="transition-colors duration-300 hover:text-link" data-track="project_clicked" data-project={p.title} data-link-type={p.liveUrl ? "title_live" : "title_repo"}>{p.title}</a>
 					</h3>
 					<p class="mt-3 text-muted">{t.projects[i].type}, {p.year}</p>
 					<p class="mt-6 max-w-[56ch] text-xl leading-relaxed">{t.projects[i].description}</p>
 					<p class="mt-4 text-muted">{p.technologies.join(", ")}</p>
 					<p class="mt-6 flex gap-7">
-						{p.liveUrl && <a href={p.liveUrl} {...ext} class={link}>{t.live}</a>}
-						<a href={p.repositoryUrl} {...ext} class={link}>{t.repo}</a>
+						{p.liveUrl && <a href={p.liveUrl} {...ext} class={link} data-track="project_clicked" data-project={p.title} data-link-type="live">{t.live}</a>}
+						<a href={p.repositoryUrl} {...ext} class={link} data-track="project_clicked" data-project={p.title} data-link-type="repo">{t.repo}</a>
 					</p>
 				</article>
 			))}
@@ -141,8 +141,8 @@ const mailto = site.email ? `mailto:${site.email}` : null;
 				<p class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]">{t.contact.title}</p>
 				<p class="mt-6 max-w-[54ch] text-xl leading-relaxed text-muted">{t.contact.body}</p>
 				<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
-					<a href={site.links.calendar} {...ext} class={button}>{t.contact.cta}</a>
-					{mailto && <a href={mailto} class={link}>{site.email}</a>}
+					<a href={site.links.calendar} {...ext} class={button} data-track="booking_clicked" data-location="contact">{t.contact.cta}</a>
+					{mailto && <a href={mailto} class={link} data-track="email_clicked" data-location="contact">{site.email}</a>}
 				</p>
 			</div>
 		</section>
@@ -151,9 +151,9 @@ const mailto = site.email ? `mailto:${site.email}` : null;
 	<footer class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 border-t border-rule px-5 py-6 text-sm text-muted md:px-8">
 		<span>© {new Date().getFullYear()} {site.name}</span>
 		<span class="flex gap-5">
-			<a href={site.links.github} {...ext} class="transition-colors hover:text-ink">GitHub</a>
-			<a href={site.links.linkedin} {...ext} class="transition-colors hover:text-ink">LinkedIn</a>
-			{mailto && <a href={mailto} class="transition-colors hover:text-ink">{t.email}</a>}
+			<a href={site.links.github} {...ext} class="transition-colors hover:text-ink" data-track="social_clicked" data-platform="github" data-location="footer">GitHub</a>
+			<a href={site.links.linkedin} {...ext} class="transition-colors hover:text-ink" data-track="social_clicked" data-platform="linkedin" data-location="footer">LinkedIn</a>
+			{mailto && <a href={mailto} class="transition-colors hover:text-ink" data-track="email_clicked" data-location="footer">{t.email}</a>}
 		</span>
 	</footer>
 
