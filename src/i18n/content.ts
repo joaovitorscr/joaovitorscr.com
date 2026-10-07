@@ -1,0 +1,275 @@
+export const locales = ["en", "pt", "es"] as const;
+export type Locale = (typeof locales)[number];
+export const defaultLocale: Locale = "en";
+
+export const site = {
+  url: "https://joaovitorscr.com",
+  name: "João Vitor",
+  handle: "joaovitorscr",
+  avatar: "https://github.com/joaovitorscr.png",
+  email: "joaovitorscr03@gmail.com",
+  links: {
+    github: "https://www.github.com/joaovitorscr",
+    linkedin: "https://www.linkedin.com/in/joaovitorscr/",
+    calendar: "https://cal.com/joaovitorscr",
+  },
+};
+
+export const skills = {
+  frontend: [
+    "React",
+    "Next.js",
+    "Astro",
+    "Angular",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "SASS",
+    "GSAP",
+  ],
+  backend: ["Node.js", "tRPC", "REST APIs", "PostgreSQL", "Drizzle ORM", "Convex", "Clerk"],
+  tools: ["Git", "Vite", "Turborepo", "Playwright", "Figma", "LLM tooling"],
+  practice: ["Accessibility", "Performance", "Responsive design", "Motion design"],
+};
+
+export const projects: {
+  title: string;
+  year: string;
+  technologies: string[];
+  liveUrl?: string;
+  repositoryUrl: string;
+}[] = [
+  {
+    title: "Auto-review",
+    year: "2026",
+    technologies: ["TypeScript", "React", "Vite", "GitHub API", "LLMs"],
+    repositoryUrl: "https://github.com/joaovitorscr/auto-review",
+  },
+  {
+    title: "Feed in Docs",
+    year: "2026",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind", "GSAP"],
+    liveUrl: "https://feed-in-docs.vercel.app",
+    repositoryUrl: "https://github.com/joaovitorscr/feed-in-docs",
+  },
+  {
+    title: "Testimony.io",
+    year: "2025",
+    technologies: ["Next.js", "React", "TypeScript", "tRPC", "PostgreSQL", "Tailwind"],
+    liveUrl: "https://testimony.io.joaovitorscr.com",
+    repositoryUrl: "https://github.com/joaovitorscr/testimony.io",
+  },
+];
+
+const en = {
+  meta: {
+    title: "João Vitor — Frontend Developer",
+    description:
+      "João Vitor is a frontend developer building fast, considered web interfaces with React, Next.js and TypeScript.",
+  },
+  nav: { work: "Work", experience: "Experience", toolkit: "Toolkit", contact: "Contact" },
+  role: "Frontend Developer",
+  hero: {
+    body: "I build fast, accessible web interfaces with React, TypeScript and modern CSS. Most of my attention goes to spacing, timing and the states people only notice when they're wrong.",
+    cta: "Book a call",
+  },
+  sections: {
+    work: "Selected work",
+    experience: "Experience",
+    toolkit: "Toolkit",
+    contact: "Contact",
+  },
+  projects: [
+    {
+      type: "Work in progress",
+      description:
+        "A pull request reviewer that works with any model. Several focused agents look for runtime bugs, each finding is checked before it's posted, and comments stay short and tied to a file and line. Early days; I'm building it now.",
+    },
+    {
+      type: "Personal project",
+      description:
+        "Paste a documentation URL and get an llms.txt index you can copy. It reads the site's sitemap, follows links within the docs section and prefers each page's Markdown version when one exists.",
+    },
+    {
+      type: "Personal project",
+      description:
+        "A tool for companies to collect customer testimonials, pick the best ones and embed them on their own site.",
+    },
+  ],
+  live: "Live site",
+  repo: "Source",
+  email: "Email",
+  notFound: { title: "This page doesn't exist.", home: "Home" },
+  experience: [
+    {
+      title: "Frontend Developer",
+      company: "Anexs Tecnologia",
+      period: "2025–now",
+      description:
+        "Building responsive websites and web applications for a range of clients, with a focus on React, TypeScript and modern CSS.",
+    },
+    {
+      title: "Trainee",
+      company: "Anexs Tecnologia",
+      period: "2024–2025",
+      description:
+        "Shipped frontend features alongside the backend team while learning the craft of production web development.",
+    },
+  ],
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend & data",
+    tools: "Tooling",
+    practice: "Practice",
+  },
+  contact: {
+    title: "Have something in mind?",
+    body: "I'm always up for a conversation about products, interfaces or a project that needs a careful frontend.",
+    cta: "Schedule a meeting",
+  },
+};
+
+type Dict = typeof en;
+
+const pt: Dict = {
+  meta: {
+    title: "João Vitor — Desenvolvedor Frontend",
+    description:
+      "João Vitor é desenvolvedor frontend e constrói interfaces web rápidas e bem pensadas com React, Next.js e TypeScript.",
+  },
+  nav: { work: "Projetos", experience: "Experiência", toolkit: "Ferramentas", contact: "Contato" },
+  role: "Desenvolvedor Frontend",
+  hero: {
+    body: "Construo interfaces web rápidas e acessíveis com React, TypeScript e CSS moderno. Presto atenção no espaçamento, no tempo das animações e nos estados que só se nota quando estão errados.",
+    cta: "Agendar conversa",
+  },
+  sections: {
+    work: "Projetos selecionados",
+    experience: "Experiência",
+    toolkit: "Ferramentas",
+    contact: "Contato",
+  },
+  projects: [
+    {
+      type: "Em andamento",
+      description:
+        "Um revisor de pull requests que funciona com qualquer modelo. Vários agentes procuram bugs de execução, cada achado é verificado antes de ser publicado e os comentários ficam curtos e ligados a um arquivo e linha. Ainda no começo; estou construindo agora.",
+    },
+    {
+      type: "Projeto pessoal",
+      description:
+        "Cole a URL de uma documentação e receba um índice llms.txt pronto para copiar. Ele lê o sitemap do site, segue os links dentro da documentação e usa a versão em Markdown de cada página quando existe.",
+    },
+    {
+      type: "Projeto pessoal",
+      description:
+        "Uma ferramenta para empresas coletarem depoimentos de clientes, escolherem os melhores e exibirem no próprio site.",
+    },
+  ],
+  live: "Ver site",
+  repo: "Código",
+  email: "E-mail",
+  notFound: { title: "Essa página não existe.", home: "Início" },
+  experience: [
+    {
+      title: "Desenvolvedor Frontend",
+      company: "Anexs Tecnologia",
+      period: "2025–atual",
+      description:
+        "Construo sites e aplicações web responsivas para diversos clientes, com foco em React, TypeScript e CSS moderno.",
+    },
+    {
+      title: "Estagiário",
+      company: "Anexs Tecnologia",
+      period: "2024–2025",
+      description:
+        "Entreguei funcionalidades de frontend junto ao time de backend enquanto aprendia o ofício do desenvolvimento web em produção.",
+    },
+  ],
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend & dados",
+    tools: "Ferramentas",
+    practice: "Prática",
+  },
+  contact: {
+    title: "Tem algo em mente?",
+    body: "Estou sempre aberto a conversar sobre produtos, interfaces ou um projeto que precise de um frontend cuidadoso.",
+    cta: "Agendar reunião",
+  },
+};
+
+const es: Dict = {
+  meta: {
+    title: "João Vitor — Desarrollador Frontend",
+    description:
+      "João Vitor es desarrollador frontend y crea interfaces web rápidas y cuidadas con React, Next.js y TypeScript.",
+  },
+  nav: {
+    work: "Proyectos",
+    experience: "Experiencia",
+    toolkit: "Herramientas",
+    contact: "Contacto",
+  },
+  role: "Desarrollador Frontend",
+  hero: {
+    body: "Construyo interfaces web rápidas y accesibles con React, TypeScript y CSS moderno. Me fijo en el espaciado, el ritmo de las animaciones y los estados que solo se notan cuando fallan.",
+    cta: "Agendar llamada",
+  },
+  sections: {
+    work: "Proyectos seleccionados",
+    experience: "Experiencia",
+    toolkit: "Herramientas",
+    contact: "Contacto",
+  },
+  projects: [
+    {
+      type: "En desarrollo",
+      description:
+        "Un revisor de pull requests que funciona con cualquier modelo. Varios agentes buscan errores de ejecución, cada hallazgo se verifica antes de publicarse y los comentarios son breves y van ligados a un archivo y una línea. Está en sus inicios; lo estoy construyendo ahora.",
+    },
+    {
+      type: "Proyecto personal",
+      description:
+        "Pega la URL de una documentación y obtén un índice llms.txt listo para copiar. Lee el sitemap del sitio, sigue los enlaces dentro de la documentación y usa la versión en Markdown de cada página cuando existe.",
+    },
+    {
+      type: "Proyecto personal",
+      description:
+        "Una herramienta para que las empresas recopilen testimonios de clientes, elijan los mejores y los muestren en su propio sitio.",
+    },
+  ],
+  live: "Ver sitio",
+  repo: "Código",
+  email: "Correo",
+  notFound: { title: "Esta página no existe.", home: "Inicio" },
+  experience: [
+    {
+      title: "Desarrollador Frontend",
+      company: "Anexs Tecnologia",
+      period: "2025–actualidad",
+      description:
+        "Desarrollo sitios y aplicaciones web responsivas para diversos clientes, con foco en React, TypeScript y CSS moderno.",
+    },
+    {
+      title: "Practicante",
+      company: "Anexs Tecnologia",
+      period: "2024–2025",
+      description:
+        "Entregué funcionalidades de frontend junto al equipo de backend mientras aprendía el oficio del desarrollo web en producción.",
+    },
+  ],
+  toolkit: {
+    frontend: "Frontend",
+    backend: "Backend y datos",
+    tools: "Herramientas",
+    practice: "Práctica",
+  },
+  contact: {
+    title: "¿Tienes algo en mente?",
+    body: "Siempre estoy dispuesto a conversar sobre productos, interfaces o un proyecto que necesite un frontend cuidadoso.",
+    cta: "Agendar reunión",
+  },
+};
+
+export const dictionaries: Record<Locale, Dict> = { en, pt, es };

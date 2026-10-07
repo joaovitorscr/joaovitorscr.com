@@ -1,0 +1,20 @@
+---
+import { defaultLocale, locales } from "../i18n/content";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>João Vitor</title>
+		<meta name="robots" content="noindex" />
+		<link rel="canonical" href={`https://joaovitorscr.com/${defaultLocale}`} />
+		<meta http-equiv="refresh" content={`0; url=/${defaultLocale}`} />
+		<script is:inline define:vars={{ locales, defaultLocale }}>
+			const pref = (navigator.languages || [navigator.language]).map((l) => l.slice(0, 2));
+			const match = pref.find((l) => locales.includes(l)) || defaultLocale;
+			location.replace("/" + match);
+		</script>
+	</head>
+	<body style="background:#f6f7f9"></body>
+</html>

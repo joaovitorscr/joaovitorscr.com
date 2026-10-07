@@ -1,0 +1,310 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { dictionaries, locales, projects, site, skills, type Locale } from "../../i18n/content";
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = dictionaries[locale];
+const ext = { target: "_blank", rel: "noopener noreferrer" };
+const link = "text-link underline decoration-1 underline-offset-4 hover:decoration-2";
+const button =
+	"inline-flex h-11 items-center rounded-full bg-ink px-6 font-medium text-paper hover:bg-link press";
+const section = "grid scroll-mt-6 gap-6 border-t border-rule pt-10 md:grid-cols-12";
+const label = "text-[15px] text-muted md:col-span-3";
+const body = "md:col-span-8 md:col-start-5";
+const navItems = [
+	["work", t.nav.work],
+	["experience", t.nav.experience],
+	["toolkit", t.nav.toolkit],
+	["contact", t.nav.contact],
+] as const;
+const toolkit = [
+	["frontend", skills.frontend],
+	["backend", skills.backend],
+	["tools", skills.tools],
+	["practice", skills.practice],
+] as const;
+const mailto = site.email ? `mailto:${site.email}` : null;
+---
+
+<Layout locale={locale}>
+	<header class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-6 text-[15px] md:px-8">
+		<a href={`/${locale}`} class="font-display font-semibold tracking-tight">{site.handle}</a>
+		<nav aria-label="Sections" class="hidden gap-6 sm:flex">
+			{navItems.map(([id, text]) => (
+				<a href={`#${id}`} class="text-muted transition-colors hover:text-ink">{text}</a>
+			))}
+		</nav>
+		<nav aria-label="Language" class="flex gap-4">
+			{locales.map((l) => (
+				<a
+					href={`/${l}`}
+					hreflang={l}
+					aria-current={l === locale ? "page" : undefined}
+					class:list={[l === locale ? "text-ink" : "text-muted transition-colors hover:text-ink"]}
+				>
+					{l}
+				</a>
+			))}
+		</nav>
+	</header>
+
+	<main class="mx-auto max-w-6xl px-5 md:px-8">
+		<!-- hero: the name, inspected like an element in devtools -->
+		<section class="pt-4 md:pt-10">
+			<h1 class="sr-only">{site.name}, {t.role}</h1>
+			<div class="bm select-none" data-bm data-state="pre" aria-hidden="true">
+				<div class="bm-layer bm-margin relative rounded-[3px] bg-bm-margin" data-box="margin">
+					<span class="bm-tag"><span>margin</span><span data-v></span></span>
+					<div class="bm-layer bm-border relative" style="--d:120ms" data-box="border">
+						<span class="bm-tag"><span>border</span><span data-v></span></span>
+						<div class="bm-layer bm-padding relative bg-bm-padding" style="--d:240ms" data-box="padding">
+							<span class="bm-tag"><span>padding</span><span data-v></span></span>
+							<div class="bm-layer relative flex bg-bm-content outline-1 outline-ink/50" style="--d:360ms" data-content>
+								<span class="absolute inset-x-2 top-1.5 flex justify-between gap-4 text-xs tabular-nums text-ink/75">
+									<span data-size></span><span data-note class="truncate transition-opacity duration-500"></span>
+								</span>
+								<p class="reveal mx-4 mt-10 mb-5 font-display leading-[0.88] font-semibold tracking-[-0.055em] md:mx-8 md:mt-14 md:mb-8" style="font-size:calc(clamp(2.25rem,11vw,10rem) * var(--fs, 1))">
+									<span><span data-name class="inline-block whitespace-nowrap" style="translate:var(--x, 0px) 0">{site.name}</span></span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-14 grid gap-6 md:grid-cols-12">
+				<p data-reveal class="font-display text-2xl font-medium tracking-tight md:col-span-4 md:text-3xl">{t.role}</p>
+				<div data-reveal class="md:col-span-8 md:col-start-5">
+					<p class="max-w-[54ch] text-xl leading-relaxed text-muted">{t.hero.body}</p>
+					<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+						<a href={site.links.calendar} {...ext} class={button}>{t.hero.cta}</a>
+						<a href={site.links.github} {...ext} class={link}>GitHub</a>
+						<a href={site.links.linkedin} {...ext} class={link}>LinkedIn</a>
+						{mailto && <a href={mailto} class={link}>{t.email}</a>}
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="work" class={`${section} mt-32`}>
+			<h2 data-reveal class={label}>{t.sections.work}</h2>
+			{projects.map((p, i) => (
+				<article data-reveal style="--d:80ms" class={body}>
+					<h3 class="font-display text-5xl font-semibold tracking-[-0.04em] md:text-7xl">
+						<a href={p.liveUrl ?? p.repositoryUrl} {...ext} class="transition-colors duration-300 hover:text-link">{p.title}</a>
+					</h3>
+					<p class="mt-3 text-muted">{t.projects[i].type}, {p.year}</p>
+					<p class="mt-6 max-w-[56ch] text-xl leading-relaxed">{t.projects[i].description}</p>
+					<p class="mt-4 text-muted">{p.technologies.join(", ")}</p>
+					<p class="mt-6 flex gap-7">
+						{p.liveUrl && <a href={p.liveUrl} {...ext} class={link}>{t.live}</a>}
+						<a href={p.repositoryUrl} {...ext} class={link}>{t.repo}</a>
+					</p>
+				</article>
+			))}
+		</section>
+
+		<section id="experience" class={`${section} mt-24`}>
+			<h2 data-reveal class={label}>{t.sections.experience}</h2>
+			<ol class={`${body} space-y-10`}>
+				{t.experience.map((job, i) => (
+					<li data-reveal style={`--d:${80 + i * 60}ms`} class="grid gap-2 sm:grid-cols-[9rem_1fr]">
+						<p class="tabular-nums text-muted sm:pt-1">{job.period}</p>
+						<div>
+							<h3 class="font-display text-2xl font-medium tracking-tight">{job.title}, {job.company}</h3>
+							<p class="mt-2 max-w-[56ch] leading-relaxed text-muted">{job.description}</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		</section>
+
+		<section id="toolkit" class={`${section} mt-24`}>
+			<h2 data-reveal class={label}>{t.sections.toolkit}</h2>
+			<dl class={`${body} grid gap-x-6 gap-y-2 sm:grid-cols-[9rem_1fr] sm:gap-y-6`}>
+				{toolkit.map(([key, list]) => (
+					<>
+						<dt data-reveal style="--d:80ms" class="text-muted">{t.toolkit[key]}</dt>
+						<dd data-reveal style="--d:140ms" class="mb-4 font-display text-2xl leading-snug tracking-tight sm:mb-0">{list.join(", ")}</dd>
+					</>
+				))}
+			</dl>
+		</section>
+
+		<section id="contact" class={`${section} mt-24 pb-32`}>
+			<h2 data-reveal class={label}>{t.sections.contact}</h2>
+			<div data-reveal style="--d:80ms" class={body}>
+				<p class="font-display text-[clamp(2.5rem,6vw,4.75rem)] leading-[0.95] font-semibold tracking-[-0.045em]">{t.contact.title}</p>
+				<p class="mt-6 max-w-[54ch] text-xl leading-relaxed text-muted">{t.contact.body}</p>
+				<p class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+					<a href={site.links.calendar} {...ext} class={button}>{t.contact.cta}</a>
+					{mailto && <a href={mailto} class={link}>{site.email}</a>}
+				</p>
+			</div>
+		</section>
+	</main>
+
+	<footer class="mx-auto flex max-w-6xl flex-wrap justify-between gap-2 border-t border-rule px-5 py-6 text-sm text-muted md:px-8">
+		<span>© {new Date().getFullYear()} {site.name}</span>
+		<span class="flex gap-5">
+			<a href={site.links.github} {...ext} class="transition-colors hover:text-ink">GitHub</a>
+			<a href={site.links.linkedin} {...ext} class="transition-colors hover:text-ink">LinkedIn</a>
+			{mailto && <a href={mailto} class="transition-colors hover:text-ink">{t.email}</a>}
+		</span>
+	</footer>
+
+	<script>
+		// whatever is on screen at load reveals in document order, after the hero name
+		let initial = true;
+		const io = new IntersectionObserver(
+			(entries) => {
+				let n = 0;
+				for (const e of entries) if (e.isIntersecting) {
+					const el = e.target as HTMLElement;
+					if (initial) el.style.setProperty("--d", `${900 + n++ * 80}ms`);
+					el.dataset.in = "";
+					io.unobserve(el);
+				}
+				initial = false;
+			},
+			{ rootMargin: "0px 0px -10% 0px" },
+		);
+		document.querySelectorAll("[data-reveal]").forEach((el) => io.observe(el));
+
+		const bm = document.querySelector<HTMLElement>("[data-bm]")!;
+		const content = bm.querySelector<HTMLElement>("[data-content]")!;
+		const text = content.querySelector("p")!;
+		const name = content.querySelector<HTMLElement>("[data-name]")!;
+		const size = content.querySelector("[data-size]")!;
+		const note = content.querySelector<HTMLElement>("[data-note]")!;
+		const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+		// devtools number format: up to 3 decimals, no trailing zeros
+		const num = (px: string) => String(Math.round(parseFloat(px) * 1000) / 1000);
+
+		// every label is read back from the element it describes, never from our own variables
+		const boxes = [...bm.querySelectorAll<HTMLElement>("[data-box]")].map((el) => ({
+			el,
+			out: el.querySelector(":scope > .bm-tag [data-v]")!,
+			prop: el.dataset.box === "border" ? "borderTopWidth" : "paddingTop",
+		})) as { el: HTMLElement; out: Element; prop: "borderTopWidth" | "paddingTop" }[];
+		const readout = () => {
+			for (const b of boxes) b.out.textContent = num(getComputedStyle(b.el)[b.prop]);
+			const r = content.getBoundingClientRect();
+			size.textContent = `${num(String(r.width))}×${num(String(r.height))}`;
+		};
+
+		// layout states: m/b/p in px (scaled on small screens), f is font-size scale, j is justify-content
+		type Justify = "flex-start" | "center" | "flex-end";
+		type State = { m: number; b: number; p: number; f: number; j: Justify; show: ("justify-content" | "font-size")[] };
+		const states: State[] = [
+			{ m: 32, b: 24, p: 32, f: 1, j: "flex-start", show: [] },
+			{ m: 20, b: 20, p: 56, f: 0.82, j: "center", show: ["justify-content", "font-size"] },
+			{ m: 56, b: 28, p: 20, f: 0.82, j: "flex-end", show: ["justify-content"] },
+			{ m: 40, b: 24, p: 40, f: 0.64, j: "flex-end", show: ["font-size"] },
+			{ m: 20, b: 32, p: 32, f: 1, j: "flex-start", show: ["justify-content", "font-size"] },
+		];
+		// bands never go below 20px so their labels fit inside them
+		const scaled = (s: State) => {
+			const k = Math.min(1, innerWidth / 900);
+			const fit = (v: number) => Math.round(Math.max(20, v * k));
+			return { m: fit(s.m), b: fit(s.b), p: fit(s.p), f: s.f, x: 0 };
+		};
+		type Vals = ReturnType<typeof scaled>;
+
+		let cur: Vals = { m: 20, b: 20, p: 20, f: 1, x: 0 };
+		const paint = () => {
+			bm.style.setProperty("--m", `${cur.m}px`);
+			bm.style.setProperty("--bw", `${cur.b}px`);
+			bm.style.setProperty("--p", `${cur.p}px`);
+			bm.style.setProperty("--fs", String(cur.f));
+			bm.style.setProperty("--x", `${cur.x}px`);
+			readout();
+		};
+
+		const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+		let raf = 0;
+		const tween = (to: Vals, ms: number, done?: () => void) => {
+			cancelAnimationFrame(raf);
+			const from = { ...cur };
+			const t0 = performance.now();
+			const step = (now: number) => {
+				const k = ease(Math.min(1, (now - t0) / ms));
+				for (const key of ["m", "b", "p", "f", "x"] as const) cur[key] = from[key] + (to[key] - from[key]) * k;
+				paint();
+				if (k < 1) raf = requestAnimationFrame(step);
+				else done?.();
+			};
+			raf = requestAnimationFrame(step);
+		};
+
+		// justify-content really changes; the jump is hidden with FLIP and eased out via translate
+		const setJustify = (j: Justify) => {
+			if (content.style.justifyContent === j) return 0;
+			const before = text.getBoundingClientRect().left;
+			content.style.justifyContent = j;
+			return before - text.getBoundingClientRect().left;
+		};
+
+		let i = 0;
+		const apply = (ms: number) => {
+			const s = states[i];
+			note.style.opacity = "0";
+			cur.x += setJustify(s.j);
+			tween(scaled(s), ms, () => {
+				// only declare what was set, with the value the browser computed
+				const cs = getComputedStyle(content);
+				const fs = getComputedStyle(text).fontSize;
+				note.textContent = s.show
+					.map((prop) => (prop === "font-size" ? `font-size: ${num(fs)}px` : `justify-content: ${cs.justifyContent}`))
+					.join("; ");
+				note.style.opacity = "1";
+			});
+		};
+
+		new ResizeObserver(readout).observe(content);
+		addEventListener("resize", () => {
+			cur = { ...scaled(states[i]), x: 0 };
+			paint();
+		});
+		content.style.justifyContent = states[0].j;
+
+		if (reduce) {
+			cur = scaled(states[0]);
+			paint();
+			bm.dataset.state = "in";
+		} else {
+			paint();
+			requestAnimationFrame(() => {
+				bm.dataset.state = "in";
+				apply(1400);
+			});
+
+			// cycle layouts while the hero is on screen and the tab is visible,
+			// then rest on the first layout after two full rounds
+			let timer = 0;
+			let visible = true;
+			let steps = 0;
+			const run = () => {
+				clearInterval(timer);
+				if (visible && !document.hidden && steps < states.length * 2)
+					timer = setInterval(() => {
+						i = (i + 1) % states.length;
+						steps++;
+						apply(1200);
+						if (steps >= states.length * 2) clearInterval(timer);
+					}, 3600);
+			};
+			new IntersectionObserver(([e]) => {
+				visible = e.isIntersecting;
+				run();
+			}).observe(bm);
+			document.addEventListener("visibilitychange", run);
+			setTimeout(run, 1600);
+		}
+	</script>
+</Layout>

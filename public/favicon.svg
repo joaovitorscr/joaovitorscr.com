@@ -1,16 +1,1 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background with gradient -->
-  <rect width="64" height="64" rx="12" fill="url(#gradient)"/>
-  
-  <!-- Gradient definition -->
-  <defs>
-    <linearGradient id="gradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#7c3aed"/>
-      <stop offset="100%" stop-color="#2563eb"/>
-    </linearGradient>
-  </defs>
-  
-  <!-- Text "JV" -->
-  <text x="32" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle">JV</text>
-</svg>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#f7d4b0"/><rect x="6" y="6" width="52" height="52" rx="8" fill="#fbe5b2"/><rect x="12" y="12" width="40" height="40" rx="5" fill="#d4dfa8"/><rect x="18" y="18" width="28" height="28" rx="3" fill="#b8d5de" stroke="#14161c" stroke-opacity=".5" stroke-width="1.5"/></svg>
