@@ -26,3 +26,4 @@ pnpm-debug.log*
 # legacy next.js app (reference only)
 old-next-app/
 .vercel
+.env*
