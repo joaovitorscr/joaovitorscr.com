@@ -10,10 +10,10 @@ const key = import.meta.env.PUBLIC_POSTHOG_KEY;
 		// Started once the page is idle after load, so analytics stays off the critical rendering path.
 		function start() {
 			posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
-				// Proxied through /ingest (see vercel.json) so ad blockers don't drop events.
-				api_host: "/ingest",
+				// PostHog managed reverse proxy, so ad blockers don't drop events.
+				api_host: "https://charizard.joaovitorscr.com",
 				ui_host: import.meta.env.PUBLIC_POSTHOG_UI_HOST ?? "https://us.posthog.com",
-				defaults: "2025-05-24",
+				defaults: "2026-05-30",
 				person_profiles: "identified_only",
 			});
 
